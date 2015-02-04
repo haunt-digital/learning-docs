@@ -3,13 +3,22 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  after_filter :advertise_flash_via_header
+  after_filter :flash_to_headers
 
-  def advertise_flash_via_header
+  def flash_to_headers
     return unless request.xhr?
 
     unless flash.empty?
-      response.headers['X-Message-Present'] = true
+      response.headers['X-Flash-Message-Present'] = true;
+
+      ['error', 'alert', 'notice', 'success'].each do |type|
+        unless flash[type].blank?
+          header_key = 'X-Flash-Message-' + type.titlecase
+          response.headers[header_key] = flash[type]
+        end
+      end
+
+      flash.discard
     end
   end
 end
