@@ -11,7 +11,8 @@ $success-color: #e6efc2 !default;
   margin-bottom: $base-spacing / 2;
   padding: $base-spacing / 2;
   text-align: center;
-  @include animate(fadeIn, 1s);
+
+  @include animate(fadeIn, $base-fade-speed);
 
   a {
     color: darken($color, 70%);
