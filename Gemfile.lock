@@ -33,6 +33,9 @@ GEM
       hashie (>= 1.0, < 3.0)
       httparty
     arel (5.0.1.20140414130214)
+    auto_html (1.6.4)
+      redcarpet (~> 3.1)
+      rinku (~> 1.5.0)
     autoprefixer-rails (5.1.3)
       execjs
       json
@@ -177,10 +180,12 @@ GEM
     rake (10.4.2)
     rdoc (4.2.0)
       json (~> 1.4)
+    redcarpet (3.2.2)
     ref (1.0.5)
     remotipart (1.2.1)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
+    rinku (1.5.1)
     rocket_pants (1.10.0)
       actionpack (>= 3.0, < 5.0)
       api_smith
@@ -237,6 +242,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
+    typohero (0.0.4)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.7.0)
@@ -253,6 +259,7 @@ PLATFORMS
 
 DEPENDENCIES
   animate-scss
+  auto_html
   autoprefixer-rails
   better_errors (<= 1.1)
   binding_of_caller
@@ -277,6 +284,7 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.1.8)
   rails_admin
+  redcarpet
   rocket_pants
   rspec-rails
   sass-rails
@@ -284,4 +292,5 @@ DEPENDENCIES
   shoulda
   sqlite3
   therubyracer
+  typohero
   uglifier (>= 1.3.0)

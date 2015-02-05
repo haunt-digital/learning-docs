@@ -21,6 +21,11 @@ gem 'neat'
 gem 'bitters'
 gem 'animate-scss'
 
+# Rendering
+gem 'redcarpet'
+gem 'typohero'
+gem 'auto_html'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
