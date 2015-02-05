@@ -23,13 +23,15 @@
   </head>
   <body>
     <section class="container">
-
       <div class="flash-messages-container">
         <%= render partial: "shared/flash_messages", flash: flash %>
       </div>
-      <%= yield %>
+    </section>
 
-    <section>
+    <section class="container">
+      <%= yield %>
+    </section>
+
 
     <!-- Javascripts
     ================================================== -->
