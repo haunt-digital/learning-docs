@@ -10,7 +10,27 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
+ *= require normalize-rails
  */
 
+@import "bourbon";
+@import "base/base";
+@import "neat";
+
+@import "animate";
+@import "animate/fadeIn";
+@import "animate/fadeOut";
+
+@import "components/flashes";
+@import "components/dismiss";
+
+.container {
+  @include outer-container();
+}
+
+.flash-messages-container {
+  @include span-columns(8);
+  @include shift(2);
+
+  padding-top: $base-spacing / 2;
+}

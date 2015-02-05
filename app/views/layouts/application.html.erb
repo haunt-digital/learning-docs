@@ -18,18 +18,15 @@
 
   </head>
   <body>
+    <section class="container">
 
-    <%= render partial: "shared/navbar" %>
-
-
-    <div class="container">
-      <div id="flash_messages_container">
+      <div class="flash-messages-container">
         <%= render partial: "shared/flash_messages", flash: flash %>
       </div>
 
       <%= yield %>
 
-    </div> <!-- /container -->
+    <section>
 
     <!-- Javascripts
     ================================================== -->

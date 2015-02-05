@@ -12,9 +12,14 @@ gem 'mysql2'
 gem 'sqlite3'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails'
 gem 'autoprefixer-rails'
-gem 'font-awesome-rails'
+#gem 'font-awesome-rails'
+gem 'normalize-rails'
+gem 'bourbon'
+gem 'neat'
+gem 'bitters'
+gem 'animate-scss'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
