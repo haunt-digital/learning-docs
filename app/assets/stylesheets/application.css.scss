@@ -23,8 +23,19 @@
 
 @import "components/flashes";
 @import "components/dismiss";
+@import "components/textures";
+
+
+.header {
+  @include outer-container();
+}
 
 .container {
+  @include texture(180deg, $base-background-color, $base-background-color, 2, 1);
+}
+
+.container {
+  padding-left: 20px;
   @include outer-container();
 }
 
@@ -34,3 +45,4 @@
 
   padding-top: $base-spacing / 2;
 }
+

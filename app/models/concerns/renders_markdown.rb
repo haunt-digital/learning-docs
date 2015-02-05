@@ -13,7 +13,7 @@ module RendersMarkdown
           autolink: true, tables: true, lax_spacing: true
         )
         html = renderer.render(read_attribute(field))
-        TypoHero.enhance(html)
+        TypoHero.enhance(html).html_safe
       end
     end
   end

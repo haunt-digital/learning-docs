@@ -10,14 +10,11 @@ class ExternalResource < ActiveRecord::Base
     gist
     google_map
     google_video
-    youtube(:width => 400, :height => 250)
-    hashtag
+    youtube
     ted
     twitter
     vimeo
-    youtube_js_api
     liveleak
-    instagram
     image
     link :target => "_blank", :rel => "nofollow"
     simple_format
