@@ -12,9 +12,13 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
     <![endif]-->
 
+  <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Radley:400,400italic', media: 'all' %>
+  <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic', media: 'all' %>
   <%= stylesheet_link_tag 'application', media: 'all' %>
 
-    <%= yield(:page_stylesheet) if content_for?(:page_stylesheet) %>
+
+
+  <%= yield(:page_stylesheet) if content_for?(:page_stylesheet) %>
 
   </head>
   <body>
@@ -23,7 +27,6 @@
       <div class="flash-messages-container">
         <%= render partial: "shared/flash_messages", flash: flash %>
       </div>
-
       <%= yield %>
 
     <section>
