@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    flash[:success] = "Hi there!"
+    flash[:success] = current_user.email if current_user
   end
 end
