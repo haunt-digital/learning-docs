@@ -1,12 +1,1 @@
-<section class="external-resource" data-path="<%= url_for(@resource) %>">
-
-  <h1><%= @resource.title %></h1>
-
-  <div class="embedded-resource">
-    <%= @resource.uri_html %>
-  </div>
-
-  <div class="description">
-    <%= @resource.description_html %>
-  </div>
-</section>
+<%= render @resource %>

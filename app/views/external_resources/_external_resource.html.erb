@@ -1,0 +1,11 @@
+<section class="external-resource" data-path="<%= url_for(external_resource) %>">
+  <h1><%= external_resource.title %></h1>
+
+  <div class="embedded-resource">
+    <%= external_resource.uri_html %>
+  </div>
+
+  <div class="description">
+    <%= external_resource.description_html %>
+  </div>
+</section>

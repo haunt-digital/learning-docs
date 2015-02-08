@@ -6,7 +6,7 @@
   @include outer-container();
   @include animate(fadeIn, $base-fade-speed);
 
-  .embedded-resource {
+  > .embedded-resource {
     @include span-columns(6);
 
 
@@ -24,7 +24,7 @@
     }
   }
 
-  .description {
+  > .description {
     @include span-columns(6);
   }
 }
