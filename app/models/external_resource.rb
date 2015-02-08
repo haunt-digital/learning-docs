@@ -1,7 +1,13 @@
 class ExternalResource < ActiveRecord::Base
   belongs_to :task
 
+  validates :title, length: { maximum: 128 }
+  validates :task, presence: true
+
   include RendersMarkdown
+
+  renders_markdown :description
+
   include AutoHtml
 
   auto_html_for :uri do
@@ -22,5 +28,4 @@ class ExternalResource < ActiveRecord::Base
     simple_format
   end
 
-  renders_markdown :description
 end
