@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
-  get 'resources/:id' => 'external_resources#show'
+  get 'resources/:id' => 'external_resources#show', as: :external_resource
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

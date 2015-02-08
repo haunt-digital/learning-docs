@@ -1,5 +1,12 @@
-<h2><%= @resource.title %></h2>
+<section class="external-resource" data-path="<%= url_for(@resource) %>">
 
-<%= @resource.uri_html %>
-<%= @resource.description_html %>
+  <h1><%= @resource.title %></h1>
 
+  <div class="embedded-resource">
+    <%= @resource.uri_html %>
+  </div>
+
+  <div class="description">
+    <%= @resource.description_html %>
+  </div>
+</section>

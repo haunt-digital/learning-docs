@@ -25,13 +25,15 @@
 @import "components/dismiss";
 @import "components/textures";
 
+@import "components/external_resource";
+
 
 .header {
   @include outer-container();
 }
 
 .container {
-  @include texture(180deg, $base-background-color, $base-background-color, 2, 1);
+  // @include texture(180deg, $base-background-color, $base-background-color, 2, 1);
 }
 
 .container {
