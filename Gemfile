@@ -21,11 +21,6 @@ gem 'neat'
 gem 'bitters'
 gem 'animate-scss'
 
-# Rendering
-gem 'redcarpet'
-gem 'typohero'
-gem 'auto_html'
-
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -42,6 +37,14 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
+# Rendering
+gem 'redcarpet'
+gem 'typohero'
+gem 'auto_html'
+
+# Data structure
+gem 'markable', github: 'chrome/markable'
+
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 
 # Server
@@ -51,7 +54,7 @@ gem 'foreman'
 # API
 gem 'rocket_pants'
 
-#async
+# async
 gem 'delayed_job_active_record'
 gem 'clockwork'
 

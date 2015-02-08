@@ -1,16 +1,1 @@
-<section class="task" data-path="<%= url_for(@task) %>">
-
-  <h1><%= @task.title %></h1>
-
-  <div class="description">
-    <%= @task.description_html %>
-    <hr/>
-  </div>
-
-  <div class="resources">
-    <% @task.external_resources.each do |resource| %>
-      <%= render resource %>
-    <% end %>
-  </div>
-
-</section>
+<%= render @task %>

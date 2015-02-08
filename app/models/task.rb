@@ -3,6 +3,8 @@ class Task < ActiveRecord::Base
 
   validates :title, length: { maximum: 128 }
 
+  markable_as :complete
+
   include RendersMarkdown
 
   renders_markdown :description
