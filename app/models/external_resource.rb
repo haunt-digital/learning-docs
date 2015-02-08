@@ -1,4 +1,6 @@
 class ExternalResource < ActiveRecord::Base
+  belongs_to :task
+
   include RendersMarkdown
   include AutoHtml
 
