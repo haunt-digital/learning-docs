@@ -22,7 +22,10 @@
 @import "animate/fadeIn";
 @import "animate/fadeOut";
 
+@import "font-awesome";
+
 @import "components/flashes";
+@import "components/notices";
 @import "components/dismiss";
 @import "components/textures";
 
@@ -39,14 +42,18 @@
 }
 
 .container {
-  padding-left: 20px;
+  padding-left: $base-spacing;
   @include outer-container();
 }
 
 .flash-messages-container {
-  @include span-columns(8);
-  @include shift(2);
+  position: fixed;
+  z-index: 9999;
 
+  left: 10px;
+  width: 400px;
+
+  opacity: 0.9;
   padding-top: $base-spacing / 2;
 }
 

@@ -1,0 +1,17 @@
+<% if complete?(task) %>
+  <div class="notice-success status-notice">
+    <span>You completed this on <%= l task.completion_date_for(current_user), format: :long %></span>
+  </div>
+
+  <input
+    data-path="<%= url_for([:task_redo]) %>"
+    type="submit"
+    class="task-status complete"
+    value="Undo">
+<% else %>
+  <input
+    data-path="<%= url_for([:task_complete]) %>"
+    type="submit"
+    class="task-status todo"
+    value="Hey I know this one">
+<% end %>

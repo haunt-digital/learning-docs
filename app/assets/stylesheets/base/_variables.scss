@@ -24,6 +24,13 @@ $light-red: #FBE3E4;
 $light-yellow: #FFF6BF;
 $light-green: #E6EFC2;
 
+// Flash and notice colors
+$warning-color: #fff6bf !default;
+$error-color: #fbe3e4 !default;
+$notice-color: #e5edf8 !default;
+$success-color: #e6efc2 !default;
+
+
 // Background Color
 $base-background-color: white;
 
@@ -51,4 +58,5 @@ $notice-color: lighten($base-accent-color, 40);
 $success-color: $light-green;
 
 // Speeds
-$base-fade-speed: 0.3s;
+$base-fade-speed: 0.5s;
+$lingering-fade-speed: 1.5s

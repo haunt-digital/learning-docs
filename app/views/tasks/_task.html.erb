@@ -1,4 +1,7 @@
-<section class="task" data-path="<%= url_for(task) %>">
+<section class="task"
+  data-id="<%= task.id %>"
+  data-complete="<%= complete?(task) %>"
+  data-path="<%= url_for(task) %>">
 
   <h1><%= task.title %></h1>
 
@@ -8,9 +11,10 @@
   </div>
 
   <div class="resources">
-    <% task.external_resources.each do |resource| %>
-      <%= render resource %>
-    <% end %>
+    <%= render task.external_resources %>
   </div>
 
+  <div class="status">
+    <%= render partial: 'status', object: task, as: :task %>
+  </div>
 </section>

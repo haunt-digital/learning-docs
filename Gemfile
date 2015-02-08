@@ -14,7 +14,7 @@ gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails'
 gem 'autoprefixer-rails'
-#gem 'font-awesome-rails'
+gem 'font-awesome-rails'
 gem 'normalize-rails'
 gem 'bourbon'
 gem 'neat'

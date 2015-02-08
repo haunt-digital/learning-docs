@@ -281,6 +281,7 @@ DEPENDENCIES
   dotenv
   factory_girl_rails
   faker
+  font-awesome-rails
   foreman
   jbuilder (~> 2.0)
   jquery-rails

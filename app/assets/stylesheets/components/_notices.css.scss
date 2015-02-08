@@ -1,10 +1,8 @@
-@mixin flash($color) {
-  cursor: pointer;
+@mixin notice($color) {
   background-color: $color;
   color: darken($color, 60%);
   display: block;
   font-weight: 600;
-  margin-bottom: $base-spacing / 2;
   padding: $base-spacing / 2;
   text-align: center;
 
@@ -20,18 +18,18 @@
   }
 }
 
-.flash-warning {
-  @include flash($warning-color);
+.notice-warning {
+  @include notice($warning-color);
 }
 
-.flash-error {
-  @include flash($error-color);
+.notice-error {
+  @include notice($error-color);
 }
 
-.flash-notice {
-  @include flash($notice-color);
+.notice-notice {
+  @include notice($notice-color);
 }
 
-.flash-success {
-  @include flash($success-color);
+.notice-success {
+  @include notice($success-color);
 }
