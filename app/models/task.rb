@@ -6,5 +6,4 @@ class Task < ActiveRecord::Base
   include RendersMarkdown
 
   renders_markdown :description
-
 end

@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   get 'resources/:id' => 'external_resources#show', as: :external_resource
 
+  get 'tasks/:id' => 'tasks#show', as: :task
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
