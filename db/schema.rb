@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150209003426) do
+ActiveRecord::Schema.define(version: 20150209020645) do
 
   create_table "delayed_jobs", force: true do |t|
     t.integer  "priority",   default: 0, null: false
@@ -51,6 +51,21 @@ ActiveRecord::Schema.define(version: 20150209003426) do
 
   add_index "marks", ["markable_id", "markable_type", "mark"], name: "index_marks_on_markable_id_and_markable_type_and_mark"
   add_index "marks", ["marker_id", "marker_type", "mark"], name: "index_marks_on_marker_id_and_marker_type_and_mark"
+
+  create_table "skills", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "skills_tasks", id: false, force: true do |t|
+    t.integer "skill_id"
+    t.integer "task_id"
+  end
+
+  add_index "skills_tasks", ["skill_id"], name: "index_skills_tasks_on_skill_id"
+  add_index "skills_tasks", ["task_id"], name: "index_skills_tasks_on_task_id"
 
   create_table "tasks", force: true do |t|
     t.string   "title"
