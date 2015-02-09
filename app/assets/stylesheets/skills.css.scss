@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .skill {
-  padding-top: $base-spacing;
+  padding-top: $base-spacing/2;
 
   @include outer-container();
   @include animate(fadeIn, $base-fade-speed);
@@ -12,6 +12,7 @@
   // tasks.css.scss
   .tasks {
     @include span-columns(12);
+
     .task-card {
       @include span-columns(4 of 12);
     }

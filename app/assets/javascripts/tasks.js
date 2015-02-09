@@ -17,6 +17,13 @@ function bindTaskComplete(candidate) {
   });
 }
 
+function bindSkillProgressLinks() {
+  $('.skill-progress-breadcrumbs li').click(function () {
+    location.href = $(this).data('path');
+  });
+}
+
 $(function() {
   bindTaskComplete('section.task');
+  bindSkillProgressLinks();
 });

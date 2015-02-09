@@ -3,6 +3,10 @@
   data-complete="<%= complete?(task) %>"
   data-path="<%= skill_task_path(@skill, task) %>">
 
+  <div class="skill-progress">
+    <%= render partial: 'skills/progress', object: @skill, as: :skill %>
+  </div>
+
   <div class="header parallax-window">
     <div class="parallax-static-content">
       <span class="title">
@@ -13,6 +17,7 @@
   </div>
 
   <span class="modified">Last modified <%= l task.updated_at, format: :short %></span>
+
 
   <div class="description">
     <%= task.description_html %>

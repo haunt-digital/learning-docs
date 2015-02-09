@@ -38,19 +38,18 @@
 @import "skills";
 
 
-.header {
-  @include outer-container();
-}
-
 body {
   @include texture(180deg, $base-background-color, $base-background-color, 4, 1);
+}
+
+.header {
+  @include outer-container();
 }
 
 .container {
   background-color: white;
   padding-left: $base-spacing;
   padding-right: $base-spacing;
-
   @include outer-container();
 }
 

@@ -1,0 +1,12 @@
+<span>
+  <a href="<%= skill_path(skill) %>"><%= truncate(skill.title, 5) %></a>
+</span>
+
+<ul class="skill-progress-breadcrumbs">
+  <% skill.tasks.each do |task| %>
+    <li
+      data-complete="<%= complete?(task) %>"
+      data-path="<%= skill_task_path(@skill, task) %>" title="<%= task.title %>">
+    </li>
+  <% end %>
+</ul>
