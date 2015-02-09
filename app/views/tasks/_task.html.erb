@@ -1,7 +1,7 @@
 <section class="task"
   data-id="<%= task.id %>"
   data-complete="<%= complete?(task) %>"
-  data-path="<%= url_for(task) %>">
+  data-path="<%= skill_task_path(@skill, task) %>">
 
   <div class="header parallax-window">
     <div class="parallax-static-content">

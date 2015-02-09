@@ -4,6 +4,7 @@ class TasksController < ApplicationController
   def show
     # Scope by user eventually?
     @task = Task.find(params[:id])
+    @skill = Skill.find(params[:skill_id])
   end
 
   def mark_complete

@@ -10,13 +10,18 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
-  get 'resources/:id' => 'external_resources#show', as: :external_resource
+  resources :external_resources, only: [:show]
 
-  get 'tasks/:id' => 'tasks#show', as: :task
+  resources :skills, only: [:show] do
+    resources :tasks, only: [:show]
+  end
+
   post 'tasks/:id/complete' => 'tasks#mark_complete', as: :task_complete
   post 'tasks/:id/redo' => 'tasks#mark_redo', as: :task_redo
 
-  get 'skills/:id' => 'skills#show', as: :skill
+  # get 'skills/:id' => 'skills#show', as: :skill do
+  #   get 'tasks/:id' => 'tasks#show', as: :task
+  # end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
