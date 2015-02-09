@@ -1,4 +1,4 @@
-$parallax-window-height: 10em;
+$parallax-window-height: 15em;
 $parallax-background-height: $parallax-window-height * 2;
 
 .parallax-window {
@@ -10,14 +10,15 @@ $parallax-background-height: $parallax-window-height * 2;
 }
 
 .parallax-static-content {
-  padding: $parallax-window-height/2.5 0;
   position: relative;
   z-index: 9;
 }
 
 .parallax-background {
   background-position: top;
+  filter: blur(1px);
   background-size: cover;
+  background-color: $light-green;
   height: $parallax-background-height;
   left: 0;
   position: absolute;

@@ -29,6 +29,7 @@
 @import "components/dismiss";
 @import "components/textures";
 @import "components/parallax";
+@import "components/footer";
 
 @import "external_resources";
 @import "tasks";
@@ -38,12 +39,15 @@
   @include outer-container();
 }
 
-.container {
-  // @include texture(180deg, $base-background-color, $base-background-color, 2, 1);
+body {
+  @include texture(180deg, $base-background-color, $base-background-color, 4, 1);
 }
 
 .container {
+  background-color: white;
   padding-left: $base-spacing;
+  padding-right: $base-spacing;
+
   @include outer-container();
 }
 

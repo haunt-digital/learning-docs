@@ -3,12 +3,16 @@
   data-complete="<%= complete?(task) %>"
   data-path="<%= url_for(task) %>">
 
-  <div class="title parallax-window">
+  <div class="header parallax-window">
     <div class="parallax-static-content">
-      <h1><%= task.title %></h1>
+      <span class="title">
+        <h1><%= task.title %></h1>
+      </span>
     </div>
-    <div class="parallax-background" style="background-image: url('https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png');"></div>
+    <div class="parallax-background" style="background-image: url('<%= task.banner.url %>');"></div>
   </div>
+
+  <span class="modified">Last modified <%= l task.updated_at, format: :short %></span>
 
   <div class="description">
     <%= task.description_html %>
