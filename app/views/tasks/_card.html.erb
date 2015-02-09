@@ -1,0 +1,21 @@
+<div class="task-card card"
+  data-id="<%= task.id %>"
+  data-path="<%= url_for(task) %>"
+  data-complete="<%= complete?(task) %>">
+
+  <% if complete?(task) %>
+  <div class="ribbon-wrapper">
+    <div class="ribbon">Done</div>
+  </div>
+  <% end %>
+
+  <div class="card-image">
+    <%= image_tag(task.banner.url) %>
+  </div>
+  <div class="card-header">
+    <%= task.title %>
+  </div>
+  <div class="card-copy">
+    <%= truncate(task.description_html) %>
+  </div>
+</div>

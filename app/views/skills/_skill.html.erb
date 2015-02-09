@@ -1,0 +1,25 @@
+<section class="skill"
+  data-id="<%= skill.id %>"
+  data-path="<%= url_for(skill) %>">
+
+  <div class="header parallax-window">
+    <div class="parallax-static-content">
+      <span class="title">
+        <h1><%= skill.title %></h1>
+      </span>
+    </div>
+    <div class="parallax-background" style="background-image: url('<%= skill.banner.url %>');"></div>
+  </div>
+
+  <span class="modified">Last modified <%= l skill.updated_at, format: :short %></span>
+
+  <div class="description">
+    <%= skill.description_html %>
+    <hr/>
+  </div>
+
+
+  <div class="tasks">
+    <%= render partial: 'tasks/card', collection: skill.tasks, as: :task %>
+  </div>
+</section>

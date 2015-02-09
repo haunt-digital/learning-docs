@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   post 'tasks/:id/complete' => 'tasks#mark_complete', as: :task_complete
   post 'tasks/:id/redo' => 'tasks#mark_redo', as: :task_redo
 
+  get 'skills/:id' => 'skills#show', as: :skill
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

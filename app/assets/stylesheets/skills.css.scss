@@ -1,0 +1,52 @@
+// Place all the styles related to the skills controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.skill {
+  padding-top: $base-spacing;
+
+  @include outer-container();
+  @include animate(fadeIn, $base-fade-speed);
+
+  // More explicit styles for task-card items live under
+  // tasks.css.scss
+  .tasks {
+    @include span-columns(12);
+    .task-card {
+      @include span-columns(4 of 12);
+    }
+  }
+
+  > .header {
+
+    .title {
+      background: rgba(0, 0, 0, 0.7);
+      margin-top:  $base-spacing*2;
+      margin-bottom:  $base-spacing*2;
+
+      padding-top:  $base-spacing*1;
+      padding-bottom:  $base-spacing*1;
+
+      @include span-columns(6);
+      @include shift(3);
+
+      h1 {
+        margin: 0;
+        padding: 0;
+        font-size: 2em;
+        color: $light-gray;
+      }
+    }
+  }
+
+  .modified {
+    color: $medium-gray;
+    font-size: 0.8em;
+    line-height: $base-line-height*2;
+  }
+
+  > .description {
+    padding-top: 0;
+    @include span-columns(12);
+  }
+}

@@ -27,8 +27,6 @@
         font-size: 2em;
         color: $light-gray;
       }
-
-
     }
   }
 
@@ -88,5 +86,17 @@
         background-color: darken($notice-color, 25%);
       }
     }
+  }
+}
+
+.card.task-card[data-complete=true] {
+  @include transition (all $base-fade-speed);
+  color: $medium-gray;
+  background-color: lighten($success-color, 5%) !important;
+
+  &:hover {
+    background-color: lighten($success-color, 10%) !important;
+    @include transition (all $base-fade-speed);
+
   }
 }
