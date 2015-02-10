@@ -1,4 +1,4 @@
-  module NotifiesAboutPoints
+module NotifiesCompletionPoints
   extend ActiveSupport::Concern
 
     def notify_add_points(obj)

@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
-  include LayoutlessAjax
-  include NotifiesAboutPoints
-  include IsCompletable
+  include ReturnsLayoutlessAjax
+  include ManagesCompletion
+  include NotifiesCompletionPoints
   include RedirectsLogicallyOnCompletion
 
   def show

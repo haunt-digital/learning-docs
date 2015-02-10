@@ -1,5 +1,5 @@
 class ExternalResourcesController < ApplicationController
-  include LayoutlessAjax
+  include ReturnsLayoutlessAjax
 
   def show
     # Scope by user eventually?

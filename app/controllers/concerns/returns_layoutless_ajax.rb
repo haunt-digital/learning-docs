@@ -1,4 +1,4 @@
-module LayoutlessAjax
+module ReturnsLayoutlessAjax
   extend ActiveSupport::Concern
 
   included do

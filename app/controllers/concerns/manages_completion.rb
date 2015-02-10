@@ -1,4 +1,4 @@
-module IsCompletable
+module ManagesCompletion
   extend ActiveSupport::Concern
 
   def record_completion(item, context)
