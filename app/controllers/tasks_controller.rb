@@ -27,7 +27,6 @@ class TasksController < ApplicationController
 
     remove_completion @task, @skill
 
-    flash['warning'] = 'Task marked as todo'
     render partial: 'status', object: @task, as: :task
   end
 end

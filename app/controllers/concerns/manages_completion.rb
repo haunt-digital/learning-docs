@@ -3,13 +3,16 @@ module ManagesCompletion
 
   def record_completion(item, context)
     current_user.set_mark :complete, item
-    flash['success'] = 'Task completed!'
+    flash['success'] = "#{item.class.completion_type_name} completed!"
+
     notify_add_points item
     update_context_completion_status context
   end
 
   def remove_completion(item, context)
     current_user.remove_mark :complete, item
+    flash['warning'] = "#{item.class.completion_type_name} marked as todo"
+
     update_context_completion_status context
   end
 
