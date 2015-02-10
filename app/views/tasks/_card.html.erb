@@ -10,7 +10,7 @@
   <% end %>
 
   <div class="card-image">
-    <%= image_tag(task.banner.url) %>
+    <%= image_tag(task.banner.file? ? task.banner.url : @skill.banner.url) %>
   </div>
   <div class="card-header">
     <%= task.title %>

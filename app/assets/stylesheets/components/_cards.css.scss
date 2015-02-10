@@ -8,7 +8,9 @@
   $card-image-hover-background: lighten($card-image-background, 5%);
   $card-margin: 0em;
 
-  min-height: 10em;
+  min-height: 15em;
+  max-height: 15em;
+
 
   @include flex-basis(15em);
   @include flex-grow(1);
