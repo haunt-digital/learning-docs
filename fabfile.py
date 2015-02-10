@@ -10,11 +10,11 @@ from fabric.contrib import *
 PRODUCTION_HOST='somehost'
 
 web_docs_dir = '/var/www'
-release_dir = web_docs_dir + '/releases/sitename'
 site_name = 'sitename'
-
-project_name = 'sitename'
+release_dir = web_docs_dir + '/releases/' + site_name
 sitedir = web_docs_dir + '/' + site_name
+service_name = site_name
+project_name = site_name
 webroot_mode = '775'
 webroot_var_mode = '775'
 
@@ -207,7 +207,7 @@ def nginx_restart():
 def app_restart():
   """ Restart foreman
   """
-  cmd = 'service kgm-web restart'
+  cmd = 'service ' + service_name + ' restart'
   sudo_run(cmd)
 
 
@@ -215,7 +215,7 @@ def app_restart():
 def app_stop():
   """ Restart foreman
   """
-  cmd = 'service kgm-web stop'
+  cmd = 'service ' + service_name + ' stop'
   sudo_run(cmd)
 
 
@@ -223,7 +223,7 @@ def app_stop():
 def app_start():
   """ Restart foreman
   """
-  cmd = 'service kgm-web start'
+  cmd = 'service ' + service_name + ' start'
   sudo_run(cmd)
 
 
@@ -315,7 +315,7 @@ def deploy(branch='master', debug=False):
 
     # Generally avoid this via -d /full/path
     puts(green("Rebuilding upstart script"))
-    sudo_run('foreman export --app kgm-web --user root upstart /etc/init')
+    sudo_run('foreman export --app ' + service_name + ' --user root upstart /etc/init')
 
   puts(green("Starting app back up"))
   app_start()
