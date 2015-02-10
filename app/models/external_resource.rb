@@ -4,11 +4,9 @@ class ExternalResource < ActiveRecord::Base
   validates :title, length: { maximum: 128 }
 
   include RendersMarkdown
-
   renders_markdown :description
 
   include AutoHtml
-
   auto_html_for :uri do
     html_escape
 
