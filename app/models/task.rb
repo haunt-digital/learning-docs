@@ -13,7 +13,7 @@ class Task < ActiveRecord::Base
 
   renders_markdown :description
 
-  include Completable
+  include IsCompletable
   points_for_completion 20
   completion_type_name 'Task'
 

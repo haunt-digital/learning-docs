@@ -1,4 +1,4 @@
-module Completable
+module IsCompletable
   extend ActiveSupport::Concern
 
   included do
@@ -18,6 +18,7 @@ module Completable
       end
     end
   end
+
 
   def completed_by?(user)
     marked_as? :complete, :by => user

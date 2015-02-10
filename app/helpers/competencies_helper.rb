@@ -6,6 +6,6 @@ module CompetenciesHelper
   end
 
   def score(competency)
-    competency.score_for(current_user)
+    competency.collections_completion_score_for(current_user)
   end
 end

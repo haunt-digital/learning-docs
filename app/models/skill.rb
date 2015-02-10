@@ -10,7 +10,10 @@ class Skill < ActiveRecord::Base
   include RendersMarkdown
   renders_markdown :description
 
-  include Completable
+  include IsCompletable
   points_for_completion 50
   completion_type_name 'Skill'
+
+  include ScoresCollectionCompletion
+  scores_completion_for_collections :tasks
 end
