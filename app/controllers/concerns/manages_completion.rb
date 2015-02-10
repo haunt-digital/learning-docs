@@ -20,8 +20,6 @@ module ManagesCompletion
   end
 
   def update_context_completion_status(context)
-    context.collections_complete_for?(current_user)
-
     if context.collections_complete_for?(current_user)
       current_user.set_mark :complete, context
       if self.respond_to?(:notify_completion_add_points)
