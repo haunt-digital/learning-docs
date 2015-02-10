@@ -10,7 +10,9 @@ function bindDismissables(selector) {
   selector = selector || '.dismissable';
   $(selector).not('*[data-bound-dismiss]').each(function () {
     $(this).data('bound-dismiss', true);
-    $(this).click(function () {
+
+    $(this).click(function (event) {
+      event.stopPropagation();
       dismiss(this);
     });
 
@@ -18,6 +20,6 @@ function bindDismissables(selector) {
 
     setTimeout(function () {
       dismiss(that);
-    }, 3000);
+    }, 5000);
   });
 }

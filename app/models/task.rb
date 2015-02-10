@@ -19,9 +19,9 @@ class Task < ActiveRecord::Base
   end
 
   def next_in_context_of(skill, user)
-    current_index = kill.tasks.find_index { |task| task.id == self.id }
+    current_index = skill.tasks.find_index { |task| task.id == self.id }
 
-    skill.tasks.each do |task, i|
+    skill.tasks.each_with_index do |task, i|
       if i > current_index
         unless task.marked_as? :complete, :by => user
           return task
