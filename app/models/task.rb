@@ -10,7 +10,6 @@ class Task < ActiveRecord::Base
   markable_as :complete
 
   include RendersMarkdown
-
   renders_markdown :description
 
   include IsCompletable

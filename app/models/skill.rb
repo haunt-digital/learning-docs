@@ -14,6 +14,6 @@ class Skill < ActiveRecord::Base
   points_for_completion 50
   completion_type_name 'Skill'
 
-  include ScoresCollectionCompletion
-  scores_completion_for_collections :tasks
+  include RelaysCollectionCompleteness
+  relays_completeness_for_collections :tasks
 end

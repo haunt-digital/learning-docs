@@ -4,8 +4,8 @@ class Competency < ActiveRecord::Base
 
   validates :title, length: { maximum: 128 }
 
-  include ScoresCollectionCompletion
-  scores_completion_for_collections :skills, :tasks
+  include RelaysCollectionCompleteness
+  relays_completeness_for_collections :skills, :tasks
 
   def skills_complete_for(user)
     skills.marked_as(:complete, :by => user).count
