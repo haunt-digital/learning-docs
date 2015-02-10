@@ -1,0 +1,21 @@
+<div class="skill-card card"
+  data-id="<%= skill.id %>"
+  data-path="<%= skill_path(skill) %>"
+  data-complete="<%= complete?(skill) %>">
+
+  <% if complete?(skill) %>
+  <div class="ribbon-wrapper">
+    <div class="ribbon">Done</div>
+  </div>
+  <% end %>
+
+  <div class="card-image">
+    <%= image_tag(skill.banner.url) %>
+  </div>
+  <div class="card-header">
+    <%= skill.title %>
+  </div>
+  <div class="card-copy">
+    <%= truncate(skill.description_html) %>
+  </div>
+</div>

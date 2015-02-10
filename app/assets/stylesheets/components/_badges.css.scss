@@ -1,0 +1,38 @@
+$badge-font-size: 0.85em !default;
+
+@mixin badge($color: $medium-gray) {
+  @include transition (all $base-fade-speed ease-in-out);
+
+  background-color: darken($color, 15%);
+  // border-radius: $badge-font-size * 5;
+  color: darken($color, 60%);
+  display: inline-block;
+  font-size: $badge-font-size;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.5em 1em;
+
+  &:hover {
+    background-color: darken($color, 10%);
+  }
+}
+
+.badge {
+  @include badge;
+}
+
+.badge-alert {
+  @include badge($alert-color);
+}
+
+.badge-error {
+  @include badge($error-color);
+}
+
+.badge-notice {
+  @include badge($notice-color);
+}
+
+.badge-success {
+  @include badge($success-color);
+}

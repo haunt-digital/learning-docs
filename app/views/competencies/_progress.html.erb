@@ -1,10 +1,12 @@
 <nav role="navigation">
   <ul class="navigation-menu">
-    <% skill.competencies.each do |competency| %>
-      <li class="nav-link">
-        <a href="<%= competency_path(competency) %>"><%= competency.title %></a>
-        <%= skill_completion(competency) %>
-        <%= score(competency) %>
+    <% competencies.each do |competency| %>
+      <li class="nav-link competency-status">
+        <a href="<%= competency_path(competency) %>">
+        <%= competency.title %>
+        <span class="badge-notice"><%= skill_completion(competency) %> skills</span>
+        <span class="badge-success"><%= score(competency) %> pts</span>
+        </a>
       </li>
     <% end %>
   </ul>

@@ -1,0 +1,11 @@
+<section class="competency"
+  data-id="<%= competency.id %>"
+  data-path="<%= url_for(competency) %>">
+
+<!--   <h1><%= competency.title %> competency</h1>
+ -->
+
+  <div class="skills">
+    <%= render partial: 'skills/card', collection: competency.skills, as: :skill %>
+  </div>
+</section>

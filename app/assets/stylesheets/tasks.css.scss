@@ -90,14 +90,12 @@
 }
 
 .card.task-card[data-complete=true] {
-  @include transition (all $base-fade-speed);
+  @include transition (all $base-fade-speed ease-in-out);
   color: $medium-gray;
   background-color: lighten($success-color, 5%) !important;
 
   &:hover {
     background-color: lighten($success-color, 10%) !important;
-    @include transition (all $base-fade-speed);
-
   }
 }
 

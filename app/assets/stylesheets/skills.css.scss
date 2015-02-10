@@ -25,8 +25,8 @@
       margin-top:  $base-spacing*2;
       margin-bottom:  $base-spacing*2;
 
-      padding-top:  $base-spacing*1;
-      padding-bottom:  $base-spacing*1;
+      padding-top:  $base-spacing;
+      padding-bottom:  $base-spacing;
 
       @include span-columns(6);
       @include shift(3);
@@ -50,4 +50,8 @@
     padding-top: 0;
     @include span-columns(12);
   }
+}
+
+li.competency-status * span:first-child {
+  margin-left: $base-spacing/2;
 }

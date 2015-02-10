@@ -1,3 +1,25 @@
 // Place all the styles related to the competencies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.competency {
+  padding-top: $base-spacing/2;
+
+  @include outer-container();
+  @include animate(fadeIn, $base-fade-speed);
+
+  // More explicit styles for task-card items live under
+  // tasks.css.scss
+  .skills {
+    @include span-columns(12);
+
+    .skill-card {
+      @include span-columns(4 of 12);
+    }
+  }
+
+
+  // > .description {
+  //   padding-top: 0;
+  //   @include span-columns(12);
+  // }
+}

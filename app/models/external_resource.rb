@@ -2,7 +2,6 @@ class ExternalResource < ActiveRecord::Base
   belongs_to :task
 
   validates :title, length: { maximum: 128 }
-  validates :task, presence: true
 
   include RendersMarkdown
 
