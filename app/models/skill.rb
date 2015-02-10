@@ -12,4 +12,14 @@ class Skill < ActiveRecord::Base
   include RendersMarkdown
 
   renders_markdown :description
+
+
+  def self.points_for_completion
+    50
+  end
+
+  def self.presentation_name
+    'Skill'
+  end
+
 end

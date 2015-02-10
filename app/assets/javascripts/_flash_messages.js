@@ -19,7 +19,7 @@ $(function() {
   $(document).ajaxComplete(function(event, request) {
     if (request.getResponseHeader('X-Flash-Message-Present')) {
 
-      var types = ['Error', 'Warning', 'Notice', 'Success'];
+      var types = ['Error', 'Warning', 'Notice', 'Success', 'Skill-Points', 'Task-Points'];
 
       $.each(types, function( index, value ) {
         var msg = request.getResponseHeader('X-Flash-Message-' + value);

@@ -1,7 +1,7 @@
 <% content_for :title, @skill.title %>
 
 <% content_for :header_bar do %>
-  <%= render partial: 'competencies', object: @skill, as: :skill %>
+  <%= render partial: 'competencies/progress', object: @skill, as: :skill %>
 <% end %>
 
 <%= render @skill %>

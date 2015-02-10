@@ -13,6 +13,16 @@ class Task < ActiveRecord::Base
 
   renders_markdown :description
 
+
+  def self.points_for_completion
+    20
+  end
+
+  def self.presentation_name
+    'Task'
+  end
+
+
   def completion_date_for(user)
     mark = Markable::Mark.where(marker: user, markable: self).first
     mark.created_at

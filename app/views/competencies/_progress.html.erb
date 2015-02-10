@@ -3,6 +3,8 @@
     <% skill.competencies.each do |competency| %>
       <li class="nav-link">
         <a href="<%= competency_path(competency) %>"><%= competency.title %></a>
+        <%= skill_completion(competency) %>
+        <%= score(competency) %>
       </li>
     <% end %>
   </ul>
