@@ -5,7 +5,10 @@ module ManagesCompletion
     current_user.set_mark :complete, item
     flash['success'] = "#{item.class.completion_type_name} completed!"
 
-    notify_add_points item
+    if self.respond_to?(:notify_completion_add_points)
+      notify_completion_add_points item
+    end
+
     update_context_completion_status context
   end
 
@@ -21,7 +24,9 @@ module ManagesCompletion
 
     if context.collections_complete_for?(current_user)
       current_user.set_mark :complete, context
-      notify_add_points context
+      if self.respond_to?(:notify_completion_add_points)
+        notify_completion_add_points context
+      end
       flash['success'] = "#{context.class.completion_type_name} completed!"
     else
       current_user.remove_mark :complete, context
