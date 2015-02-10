@@ -13,11 +13,14 @@ Rails.application.routes.draw do
   resources :external_resources, only: [:show]
 
   resources :skills, only: [:show] do
-    resources :tasks, only: [:show]
+    resources :tasks, only: [:show] do
+      post 'mark_complete', :on => :member, as: :task_complete
+      post 'mark_redo', :on => :member, as: :task_redo
+    end
   end
 
-  post 'tasks/:id/complete' => 'tasks#mark_complete', as: :task_complete
-  post 'tasks/:id/redo' => 'tasks#mark_redo', as: :task_redo
+  # post 'tasks/:id/complete' => 'tasks#mark_complete', as: :task_complete
+  # post 'tasks/:id/redo' => 'tasks#mark_redo', as: :task_redo
 
   # get 'skills/:id' => 'skills#show', as: :skill do
   #   get 'tasks/:id' => 'tasks#show', as: :task

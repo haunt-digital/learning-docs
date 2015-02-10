@@ -4,13 +4,13 @@
   </div>
 
   <input
-    data-path="<%= url_for([:task_redo]) %>"
+    data-path="<%= task_redo_skill_task_path(@skill, task) %>"
     type="submit"
     class="task-status complete"
     value="Undo">
 <% else %>
   <input
-    data-path="<%= url_for([:task_complete]) %>"
+    data-path="<%= task_complete_skill_task_path(@skill, task) %>"
     type="submit"
     class="task-status todo"
     value="Hey I know this one">

@@ -9,6 +9,15 @@ function bindTaskComplete(candidate) {
       dismiss($('.status-notice', candidate)[0]);
     }
 
+    var $current = $("li[data-current='true']");
+    if ($current.attr('data-complete') == 'true') {
+      $current.attr('data-complete', 'false');
+    }
+    else {
+      $current.attr('data-complete', 'true');
+    }
+
+
     $.post($button.data('path'), function (data) {
       $statusToggleBlock = $button.closest('.status');
       $statusToggleBlock.html(data);

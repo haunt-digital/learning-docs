@@ -13,5 +13,11 @@ function bindDismissables(selector) {
     $(this).click(function () {
       dismiss(this);
     });
+
+    var that = this;
+
+    setTimeout(function () {
+      dismiss(that);
+    }, 3000);
   });
 }

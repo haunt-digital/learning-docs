@@ -17,4 +17,18 @@ class Task < ActiveRecord::Base
     mark = Markable::Mark.where(marker: user, markable: self).first
     mark.created_at
   end
+
+  def next_in_context_of(skill, user)
+    current_index = kill.tasks.find_index { |task| task.id == self.id }
+
+    skill.tasks.each do |task, i|
+      if i > current_index
+        unless task.marked_as? :complete, :by => user
+          return task
+        end
+      end
+    end
+
+    return nil
+  end
 end

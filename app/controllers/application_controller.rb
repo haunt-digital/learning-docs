@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
 
   def flash_to_headers
     return unless request.xhr?
+    return if response.headers['X-Redirect-Requested']
 
     unless flash.empty?
       response.headers['X-Flash-Message-Present'] = true;
@@ -20,5 +21,11 @@ class ApplicationController < ActionController::Base
 
       flash.discard
     end
+  end
+
+
+  def client_redirect(path)
+    response.headers['X-Redirect-Requested'] = true;
+    response.headers['X-Redirect-Path'] = path;
   end
 end
