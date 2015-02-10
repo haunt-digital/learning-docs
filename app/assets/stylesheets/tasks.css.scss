@@ -101,49 +101,32 @@
   }
 }
 
-.skill-progress {
-  @include animate(fadeIn, $lingering-fade-speed);
+.skill-progress-breadcrumbs {
+  // float: right;
+  overflow: hidden;
 
-  @include span-columns(12);
-  padding-bottom:  $base-spacing;
-  padding-top:  $base-spacing/4;
+  li{
+    cursor: pointer;
+    list-style: none;
+    display: inline-block;
+    vertical-align: middle;
+    background: $light-gray;
+    width: 1.2em;
+    height: 1.2em;
+    border-radius: 50%;
+    margin-right: 15px;
 
-  span > a {
-    @include transition (all $base-fade-speed ease-in-out);
-
-    color: darken($medium-gray, 10%);
-    font-size: 0.9em;
-    background-color: $notice-color;
-    padding: $base-spacing/3;
-    padding-left: $base-spacing;
-    padding-right: $base-spacing;
-
-    &:hover {
-      color: darken($medium-gray, 25%);
+    &[data-complete=true] {
+      background: $success-color;
     }
-  }
 
-  .skill-progress-breadcrumbs {
-    float: right;
-    overflow: hidden;
+    &[data-complete=false] {
+      background: $notice-color;
+    }
 
-    li{
-      cursor: pointer;
-      list-style: none;
-      display: inline-block;
-      background: $light-gray;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      margin-right: 10px;
-
-      &[data-complete=true] {
-        background: $success-color;
-      }
-
-      &[data-complete=false] {
-        background: $notice-color;
-      }
+    &[data-current=true] {
+      width: 1.4em;
+      height: 1.4em;
     }
   }
 }

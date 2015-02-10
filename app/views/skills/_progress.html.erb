@@ -1,12 +1,23 @@
-<span>
-  <a href="<%= skill_path(skill) %>"><%= truncate(skill.title, 5) %></a>
-</span>
-
-<ul class="skill-progress-breadcrumbs">
-  <% skill.tasks.each do |task| %>
-    <li
-      data-complete="<%= complete?(task) %>"
-      data-path="<%= skill_task_path(@skill, task) %>" title="<%= task.title %>">
+<nav role="navigation">
+  <ul class="navigation-menu">
+    <li class="nav-link">
+      <a href="<%= skill_path(skill) %>"><%= truncate(skill.title, 5) %></a>
     </li>
-  <% end %>
-</ul>
+  </ul>
+  <ul class="navigation-menu skill-progress-breadcrumbs">
+    <% skill.tasks.each do |task| %>
+      <li
+        data-complete="<%= complete?(task) %>"
+        data-path="<%= skill_task_path(@skill, task) %>" title="<%= task.title %>"
+        data-current="<%= current?(task) %>" title="<%= task.title %>">
+      </li>
+    <% end %>
+  </ul>
+
+</nav>
+
+<div class="navigation-tools">
+  <div class="progress-bar-indication">
+    <span class="meter" style="width: 60%"></span>
+  </div>
+</div>

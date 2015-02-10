@@ -1,3 +1,7 @@
 <% content_for :title, @task.title %>
 
+<% content_for :header_bar do %>
+  <%= render partial: 'skills/progress', object: @skill, as: :skill %>
+<% end %>
+
 <%= render @task %>

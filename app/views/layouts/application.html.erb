@@ -22,11 +22,17 @@
   </head>
   <body>
 
-    <section class="header">
-      <div class="flash-messages-container">
-        <%= render partial: "shared/flash_messages", flash: flash %>
-      </div>
-    </section>
+    <div class="flash-messages-container">
+      <%= render partial: "shared/flash_messages", flash: flash %>
+    </div>
+
+    <% if content_for?(:header_bar) %>
+      <header class="navigation" role="banner">
+        <div class="navigation-wrapper">
+          <%= yield(:header_bar) %>
+        </div>
+      </header>
+    <% end %>
 
     <section class="container">
       <%= yield %>

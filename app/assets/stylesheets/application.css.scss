@@ -24,14 +24,16 @@
 
 @import "font-awesome";
 
+@import "components/header";
+@import "components/footer";
 @import "components/flashes";
 @import "components/notices";
 @import "components/dismiss";
 @import "components/textures";
 @import "components/parallax";
-@import "components/footer";
 @import "components/cards";
 @import "components/ribbon";
+@import "components/progress_bar";
 
 @import "external_resources";
 @import "tasks";
