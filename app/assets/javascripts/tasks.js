@@ -1,6 +1,23 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
+function toggleCompletedRibbon() {
+  if ($('.task .ribbon-wrapper').length > 0) {
+    $('.task .ribbon-wrapper').toggle();
+  }
+}
+
+function toggleProgressListStatus() {
+  var $current = $("li[data-current='true']");
+
+  if ($current.attr('data-complete') == 'true') {
+    $current.attr('data-complete', 'false');
+  }
+  else {
+    $current.attr('data-complete', 'true');
+  }
+}
+
 function bindTaskComplete(candidate) {
   $('input.task-status', candidate).click(function () {
     $button = $(this);
@@ -9,14 +26,8 @@ function bindTaskComplete(candidate) {
       dismiss($('.status-notice', candidate)[0]);
     }
 
-    var $current = $("li[data-current='true']");
-    if ($current.attr('data-complete') == 'true') {
-      $current.attr('data-complete', 'false');
-    }
-    else {
-      $current.attr('data-complete', 'true');
-    }
-
+    toggleCompletedRibbon();
+    toggleProgressListStatus();
 
     $.post($button.data('path'), function (data) {
       $statusToggleBlock = $button.closest('.status');

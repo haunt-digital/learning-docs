@@ -3,11 +3,7 @@
   data-path="<%= skill_path(skill) %>"
   data-complete="<%= complete?(skill) %>">
 
-  <% if complete?(skill) %>
-  <div class="ribbon-wrapper">
-    <div class="ribbon">Done</div>
-  </div>
-  <% end %>
+  <%= render partial: 'shared/done_ribbon', object: skill, as: :item %>
 
   <div class="card-image">
     <%= image_tag(skill.banner.url) %>

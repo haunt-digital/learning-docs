@@ -6,11 +6,7 @@
   <div class="header parallax-window">
     <div class="parallax-static-content">
 
-      <% if complete?(task) %>
-        <div class="ribbon-wrapper">
-          <div class="ribbon">Complete</div>
-        </div>
-      <% end %>
+      <%= render partial: 'shared/completed_ribbon', object: task, as: :item %>
 
       <span class="title">
         <h1><%= task.title %></h1>

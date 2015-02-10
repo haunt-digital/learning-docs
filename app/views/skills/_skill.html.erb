@@ -5,11 +5,7 @@
   <div class="header parallax-window">
     <div class="parallax-static-content">
 
-      <% if complete?(skill) %>
-        <div class="ribbon-wrapper">
-          <div class="ribbon">Complete</div>
-        </div>
-      <% end %>
+      <%= render partial: 'shared/completed_ribbon', object: skill, as: :item %>
 
       <span class="title">
         <h1><%= skill.title %></h1>
