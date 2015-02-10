@@ -1,0 +1,9 @@
+<nav role="navigation">
+  <ul class="navigation-menu">
+    <% skill.competencies.each do |competency| %>
+      <li class="nav-link">
+        <a href="<%= competency_path(competency) %>"><%= competency.title %></a>
+      </li>
+    <% end %>
+  </ul>
+</nav>

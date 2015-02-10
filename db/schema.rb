@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150209021618) do
+ActiveRecord::Schema.define(version: 20150210015158) do
+
+  create_table "competencies", force: true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "competencies_skills", id: false, force: true do |t|
+    t.integer "competency_id"
+    t.integer "skill_id"
+  end
+
+  add_index "competencies_skills", ["competency_id"], name: "index_competencies_skills_on_competency_id"
+  add_index "competencies_skills", ["skill_id"], name: "index_competencies_skills_on_skill_id"
 
   create_table "delayed_jobs", force: true do |t|
     t.integer  "priority",   default: 0, null: false
