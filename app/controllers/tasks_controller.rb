@@ -79,7 +79,7 @@ class TasksController < ApplicationController
   end
 
   def notify_add_points(obj)
-    type_name = obj.class.presentation_name.downcase
+    type_name = obj.class.completion_type_name.downcase
     points = obj.class.points_for_completion
     flash[type_name + '_points'] = "+#{points} for completing #{type_name}"
   end

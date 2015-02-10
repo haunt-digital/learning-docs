@@ -13,20 +13,10 @@ class Task < ActiveRecord::Base
 
   renders_markdown :description
 
+  include Completable
+  points_for_completion 20
+  completion_type_name 'Task'
 
-  def self.points_for_completion
-    20
-  end
-
-  def self.presentation_name
-    'Task'
-  end
-
-
-  def completion_date_for(user)
-    mark = Markable::Mark.where(marker: user, markable: self).first
-    mark.created_at
-  end
 
   def next_in_context_of(skill, user)
     current_index = skill.tasks.find_index { |task| task.id == self.id }
