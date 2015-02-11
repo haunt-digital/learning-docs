@@ -1,14 +1,26 @@
 <nav role="navigation">
   <ul class="navigation-menu">
-    <% competencies.each do |competency| %>
+    <li class="nav-link competency-status">
+      <a href="<%= competency_path(@competency) %>">
+        <%= @competency.title %>
+        <span class="badge-success"><%= competency_percentage(@competency) %></span>
+        <span class="badge-success"><%= competency_score(@competency) %></span>
+        <span class="badge-notice"><%= skill_completion(@competency) %> skills</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<nav role="navigation" class="secondary">
+  <ul class="navigation-menu">
+    <% current_user.competencies.take(3).each do |competency| %>
+      <% next if competency.id == @competency.id %>
       <% next unless competency.subscribed_by?(current_user) %>
 
       <li class="nav-link competency-status">
         <a href="<%= competency_path(competency) %>">
           <%= competency.title %>
           <span class="badge-success"><%= competency_percentage(competency) %></span>
-          <span class="badge-success"><%= competency_score(competency) %></span>
-          <span class="badge-notice"><%= skill_completion(competency) %> skills</span>
         </a>
       </li>
     <% end %>
