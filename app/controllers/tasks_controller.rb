@@ -10,7 +10,7 @@ class TasksController < ApplicationController
     @skill = Skill.find(params[:skill_id])
   end
 
-  def mark_complete
+  def complete
     @task = Task.find(params[:id])
     @skill = Skill.find(params[:skill_id])
 
@@ -21,7 +21,7 @@ class TasksController < ApplicationController
     render partial: 'status', object: @task, as: :task
   end
 
-  def mark_for_redo
+  def redo
     @task = Task.find(params[:id])
     @skill = Skill.find(params[:skill_id])
 

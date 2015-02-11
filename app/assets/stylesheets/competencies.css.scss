@@ -26,26 +26,25 @@
 
       input.competency-subscribe {
         float: right;
-        @include transition( all $base-fade-speed );
+        @include transition( all $base-fade-speed ease-in-out);
 
         &.unsubscribed {
           background-color: darken($success-color, 38%);
         }
 
         &.subscribed {
-          background-color: darken($notice-color, 35%);
+          background-color: darken($light-gray, 15%);
         }
       }
 
       input.competency-subscribe:hover {
-        @include transition( all $base-fade-speed );
 
         &.unsubscribed {
           background-color: darken($success-color, 45%);
         }
 
-        &.subscibed {
-          background-color: darken($notice-color, 25%);
+        &.subscribed {
+          background-color: darken($light-gray, 35%);
         }
       }
     }

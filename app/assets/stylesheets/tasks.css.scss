@@ -71,7 +71,7 @@
       }
 
       &.complete {
-        background-color: darken($notice-color, 35%);
+        background-color: darken($light-gray, 15%);
       }
     }
 
@@ -83,7 +83,7 @@
       }
 
       &.complete {
-        background-color: darken($notice-color, 25%);
+        background-color: darken($light-gray, 35%);
       }
     }
   }

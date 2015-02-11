@@ -7,6 +7,19 @@ function bindSkillCardLinks() {
   });
 }
 
+function bindCompetencySubscribe(candidate) {
+  $('input.competency-subscribe', candidate).click(function () {
+    $button = $(this);
+
+    $.post($button.data('path'), function (data) {
+      $statusToggleBlock = $button.closest('.subscribe');
+      $statusToggleBlock.html(data);
+      bindCompetencySubscribe($statusToggleBlock);
+    });
+  });
+}
+
 $(function() {
   bindSkillCardLinks();
+  bindCompetencySubscribe('section.competency');
 });

@@ -10,4 +10,5 @@ class Competency < ActiveRecord::Base
   relays_completeness_for_collections :skills, :tasks
 
   include IsSubscribable
+  subscription_type_name 'Competency'
 end

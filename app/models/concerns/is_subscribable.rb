@@ -5,6 +5,16 @@ module IsSubscribable
     markable_as :subscribed
   end
 
+
+  module ClassMethods
+    def subscription_type_name(name)
+      define_singleton_method(:subscription_type_name) do
+        name
+      end
+    end
+  end
+
+
   def subscribed_by?(user)
     marked_as? :subscribed, :by => user
   end
