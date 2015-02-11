@@ -310,8 +310,8 @@ def deploy(branch='master', debug=False):
     puts(green("Clearing cache"))
     sudo_run(' RAILS_ENV=production bundle exec rake tmp:cache:clear')
 
-    puts(green("Compiling static assets"))
-    sudo_run('RAILS_ENV=production bundle exec rake assets:precompile')
+    # puts(green("Compiling static assets"))
+    # sudo_run('RAILS_ENV=production bundle exec rake assets:precompile')
 
     # Generally avoid this via -d /full/path
     puts(green("Rebuilding upstart script"))
