@@ -51,7 +51,6 @@ Rails.application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
 
   # Use a different cache store in production.
-  puts Rails.application.class.parent_name
   config.cache_store = :dalli_store, {
     :namespace => Rails.application.class.parent_name.downcase,
     :expires_in => 3.days,

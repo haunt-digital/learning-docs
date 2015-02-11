@@ -11,7 +11,6 @@ function appendFlashMessage(msg, type) {
   }
 }
 
-
 $(function() {
   bindDismissables('.flash-messages-container > *');
 
