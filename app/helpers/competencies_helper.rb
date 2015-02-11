@@ -8,7 +8,6 @@ module CompetenciesHelper
     total = competency.skills.count
     ratio = complete.to_f / total.to_f
 
-    puts "#{ratio} !!!!!!!!!!!!!!!!!!!!!!"
     if ratio.between?(0.8, 1)
       badge_class = 'success'
     elsif ratio.between?(0.3, 0.8)

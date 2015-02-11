@@ -1,3 +1,5 @@
+<% cache mark_safe_cache_key(@competency, 'competency-progress-siblings') do %>
+
 <nav role="navigation">
   <ul class="navigation-menu">
     <li class="nav-link competency-status">
@@ -20,9 +22,11 @@
       <li class="nav-link competency-status">
         <a href="<%= competency_path(competency) %>">
           <%= competency.title %>
-          <span class="badge-success"><%= competency_percentage(competency) %></span>
+          <%= competency_percentage(competency) %>
         </a>
       </li>
     <% end %>
   </ul>
 </nav>
+
+<% end %>

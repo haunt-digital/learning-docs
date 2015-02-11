@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  if Rails.env.development?
+  if ENV['UNSAFE_PRODUCTION'] == 'true' || Rails.env.development?
     mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   end
 

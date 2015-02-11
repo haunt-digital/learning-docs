@@ -5,13 +5,17 @@
 
   <%= render partial: 'shared/done_ribbon', object: skill, as: :item %>
 
-  <div class="card-image">
-    <%= image_tag(skill.banner.url) %>
-  </div>
-  <div class="card-header">
-    <%= skill.title %>
-  </div>
-  <div class="card-copy">
-    <%= truncate(skill.description_html) %>
-  </div>
+  <% cache(skill) do %>
+
+    <div class="card-image">
+      <%= image_tag(skill.banner.url) %>
+    </div>
+    <div class="card-header">
+      <%= skill.title %>
+    </div>
+    <div class="card-copy">
+      <%= truncate(skill.description_html) %>
+    </div>
+
+  <% end %>
 </div>

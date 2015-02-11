@@ -12,4 +12,10 @@ class User < ActiveRecord::Base
     # not just all competencies some day...
     Competency.all
   end
+
+  def mark_stamp
+    count = Markable::Mark.where(marker: self).count
+    most_recent = Markable::Mark.where(marker: self).maximum(:created_at)
+    "#{count}-#{most_recent}"
+  end
 end

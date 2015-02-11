@@ -1,3 +1,5 @@
+<% cache mark_safe_cache_key(skill) do %>
+
 <section class="skill"
   data-id="<%= skill.id %>"
   data-path="<%= url_for(skill) %>">
@@ -26,3 +28,5 @@
     <%= render partial: 'tasks/card', collection: skill.tasks, as: :task %>
   </div>
 </section>
+
+<% end %>

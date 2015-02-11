@@ -1,3 +1,5 @@
+<% cache mark_safe_cache_key(@skill, 'competency-progress') do %>
+
 <nav role="navigation">
   <ul class="navigation-menu">
     <% competencies.each do |competency| %>
@@ -22,3 +24,5 @@
     <% end %>
   </ul>
 </nav>
+
+<% end %>

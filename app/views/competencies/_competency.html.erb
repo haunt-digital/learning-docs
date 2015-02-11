@@ -1,3 +1,5 @@
+<% cache mark_safe_cache_key(competency) do %>
+
 <section class="competency"
   data-id="<%= competency.id %>"
   data-path="<%= url_for(competency) %>">
@@ -12,14 +14,9 @@
     </div>
   </div>
 
-
   <div class="description">
     <%= competency.description_html %>
   </div>
-
-<!--   <div class="scores">
-    <%= render partial: 'scores', object: competency, as: :competency %>
-  </div> -->
 
   <div class="skills">
     <hr/>
@@ -30,3 +27,5 @@
     <%= render partial: 'status', object: competency, as: :competency %>
   </div>
 </section>
+
+<% end %>

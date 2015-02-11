@@ -1,3 +1,5 @@
+<% cache mark_safe_cache_key(task) do %>
+
 <section class="task"
   data-id="<%= task.id %>"
   data-complete="<%= complete?(task) %>"
@@ -17,7 +19,6 @@
 
   <span class="modified">Last modified <%= l task.updated_at, format: :short %></span>
 
-
   <div class="description">
     <%= task.description_html %>
   </div>
@@ -32,3 +33,5 @@
     <%= render partial: 'status', object: task, as: :task %>
   </div>
 </section>
+
+<% end %>

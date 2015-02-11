@@ -1,3 +1,5 @@
+<% cache mark_safe_cache_key(@task, 'skill-progress') do %>
+
 <nav role="navigation">
   <ul class="navigation-menu">
     <li class="nav-link">
@@ -13,6 +15,6 @@
       </li>
     <% end %>
   </ul>
-
 </nav>
 
+<% end %>
