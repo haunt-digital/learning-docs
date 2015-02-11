@@ -50,7 +50,6 @@
       }
 
       input.competency-subscribe:hover {
-
         &.unsubscribed {
           background-color: darken($success-color, 45%);
         }
@@ -65,6 +64,26 @@
   & .description {
     padding-top: $base-spacing;
     @include span-columns(12);
+  }
+
+
+  .status {
+    input.competency-subscribe {
+      @include animate(fadeIn, $base-fade-speed);
+
+      float: right;
+      @include transition( all $base-fade-speed ease-in-out);
+
+      &.subscribed {
+        background-color: darken($light-gray, 15%);
+      }
+    }
+
+    input.competency-subscribe:hover {
+      &.subscribed {
+        background-color: darken($light-gray, 35%);
+      }
+    }
   }
 
 
@@ -94,34 +113,7 @@
       @include span-columns(4);
       height: 48px;
     }
-
-    input.task-status {
-      float: right;
-      @include transition( all $base-fade-speed );
-
-      &.todo {
-        background-color: darken($success-color, 38%);
-      }
-
-      &.complete {
-        background-color: darken($light-gray, 15%);
-      }
-    }
-
-    input.task-status:hover {
-      @include transition( all $base-fade-speed );
-
-      &.todo {
-        background-color: darken($success-color, 45%);
-      }
-
-      &.complete {
-        background-color: darken($light-gray, 35%);
-      }
-    }
   }
-
-
 }
 
 

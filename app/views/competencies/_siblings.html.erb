@@ -12,6 +12,8 @@
   <ul class="navigation-menu">
     <% current_user.competencies.take(3).each do |competency| %>
       <% next if competency.id == @competency.id %>
+      <% next unless competency.subscribed_by?(current_user) %>
+
       <li class="nav-link competency-status">
         <a href="<%= competency_path(competency) %>">
           <%= competency.title %>
