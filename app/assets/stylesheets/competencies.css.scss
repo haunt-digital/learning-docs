@@ -7,24 +7,36 @@
   @include outer-container();
   @include animate(fadeIn, $base-fade-speed);
 
+  & .header {
+    @include span-columns(12);
 
-  & > .header {
     padding-top: $base-spacing/2;
 
     h1 {
       font-size: $base-font-size*2;
       color: $medium-gray;
       line-height: $base-font-size*1.5;
+      margin-bottom: 0;
       @include span-columns(8);
     }
 
-    > .subscribe {
+    .scores {
+      @include span-columns(4);
+
+      .competency-stat {
+        margin: $base-spacing/6;
+      }
+    }
+
+    .subscribe {
       input {
         @include span-columns(4);
         height: 48px;
       }
 
       input.competency-subscribe {
+        @include animate(fadeIn, $base-fade-speed);
+
         float: right;
         @include transition( all $base-fade-speed ease-in-out);
 
@@ -50,6 +62,11 @@
     }
   }
 
+  & .description {
+    padding-top: $base-spacing;
+    @include span-columns(12);
+  }
+
 
   // More explicit styles for task-card items live under
   // tasks.css.scss
@@ -60,8 +77,56 @@
       @include span-columns(4 of 12);
     }
   }
+
+  > .status {
+    @include span-columns(12);
+    padding-bottom: $base-spacing * 2;
+    padding-top: $base-spacing * 2;
+
+    @include animate(fadeIn, $lingering-fade-speed);
+
+    .status-notice {
+      @include span-columns(8);
+      height: 48px;
+    }
+
+    input {
+      @include span-columns(4);
+      height: 48px;
+    }
+
+    input.task-status {
+      float: right;
+      @include transition( all $base-fade-speed );
+
+      &.todo {
+        background-color: darken($success-color, 38%);
+      }
+
+      &.complete {
+        background-color: darken($light-gray, 15%);
+      }
+    }
+
+    input.task-status:hover {
+      @include transition( all $base-fade-speed );
+
+      &.todo {
+        background-color: darken($success-color, 45%);
+      }
+
+      &.complete {
+        background-color: darken($light-gray, 35%);
+      }
+    }
+  }
+
+
 }
+
 
 li.competency-status * span:first-child {
   margin-left: $base-spacing/2;
 }
+
+

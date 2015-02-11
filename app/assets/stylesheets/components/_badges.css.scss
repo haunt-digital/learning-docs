@@ -1,16 +1,17 @@
 $badge-font-size: 0.85em !default;
+$large-badge-font-size: 1.15em;
 
-@mixin badge($color: $medium-gray) {
+@mixin badge($color: $medium-gray, $font-size: $badge-font-size ) {
   @include transition (all $base-fade-speed ease-in-out);
 
   background-color: darken($color, 15%);
   // border-radius: $badge-font-size * 5;
   color: darken($color, 60%);
   display: inline-block;
-  font-size: $badge-font-size;
+  font-size: $font-size;
   font-weight: 600;
   line-height: 1;
-  padding: 0.5em 1em;
+  padding: $badge-font-size/2 $badge-font-size*1.3;
 
   &:hover {
     background-color: darken($color, 10%);
@@ -22,17 +23,33 @@ $badge-font-size: 0.85em !default;
 }
 
 .badge-alert {
-  @include badge($alert-color);
+  @include badge($alert-color, $badge-font-size);
 }
 
 .badge-error {
-  @include badge($error-color);
+  @include badge($error-color, $badge-font-size);
 }
 
 .badge-notice {
-  @include badge($notice-color);
+  @include badge($notice-color, $badge-font-size);
 }
 
 .badge-success {
-  @include badge($success-color);
+  @include badge($success-color, $badge-font-size);
+}
+
+.large-badge-alert {
+  @include badge($alert-color, $large-badge-font-size);
+}
+
+.large-badge-error {
+  @include badge($error-color, $large-badge-font-size);
+}
+
+.large-badge-notice {
+  @include badge($notice-color, $large-badge-font-size);
+}
+
+.large-badge-success {
+  @include badge($success-color, $large-badge-font-size);
 }

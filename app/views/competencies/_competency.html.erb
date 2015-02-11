@@ -4,14 +4,29 @@
 
   <div class="header">
     <h1><%= competency.title %> competency</h1>
+
     <div class="subscribe">
-      <%= render partial: 'subscribe', object: competency, as: :competency %>
+      <% unless subscribed?(competency) %>
+        <%= render partial: 'subscribe', object: competency, as: :competency %>
+      <% end %>
     </div>
+  </div>
+
+  <div class="description">
+    <%= competency.description_html %>
+    <hr/>
+  </div>
+
+  <div class="scores">
+    <%= render partial: 'scores', object: competency, as: :competency %>
   </div>
 
   <div class="skills">
     <hr/>
-
     <%= render partial: 'skills/card', collection: competency.skills, as: :skill %>
+  </div>
+
+  <div class="status">
+    <%= render partial: 'status', object: competency, as: :competency %>
   </div>
 </section>

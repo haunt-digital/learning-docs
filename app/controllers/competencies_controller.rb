@@ -10,7 +10,7 @@ class CompetenciesController < ApplicationController
   def subscribe
     @competency = Competency.find(params[:id])
     record_subscription @competency
-    render partial: 'subscribe', object: @competency, as: :competency
+    render partial: 'status', object: @competency, as: :competency
   end
 
   def unsubscribe

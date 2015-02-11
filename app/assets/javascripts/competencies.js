@@ -8,13 +8,31 @@ function bindSkillCardLinks() {
 }
 
 function bindCompetencySubscribe(candidate) {
-  $('input.competency-subscribe', candidate).click(function () {
+  $('input.unsubscribed', candidate).click(function () {
     $button = $(this);
 
     $.post($button.data('path'), function (data) {
-      $statusToggleBlock = $button.closest('.subscribe');
-      $statusToggleBlock.html(data);
-      bindCompetencySubscribe($statusToggleBlock);
+      $responseBlock = $('.status', candidate);
+      $responseBlock.html(data);
+
+      refresh('.subscribe');
+
+      bindCompetencyUnsubscribe(candidate);
+    });
+  });
+}
+
+function bindCompetencyUnsubscribe(candidate) {
+  $('input.subscribed', candidate).click(function () {
+    $button = $(this);
+
+    $.post($button.data('path'), function (data) {
+      $responseBlock = $('.subscribe', candidate);
+      $responseBlock.html(data);
+
+      refresh('.status');
+
+      bindCompetencySubscribe(candidate);
     });
   });
 }
@@ -22,4 +40,5 @@ function bindCompetencySubscribe(candidate) {
 $(function() {
   bindSkillCardLinks();
   bindCompetencySubscribe('section.competency');
+  bindCompetencyUnsubscribe('section.competency');
 });

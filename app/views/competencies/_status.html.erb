@@ -1,0 +1,11 @@
+<% if subscribed?(competency) %>
+  <div class="notice-success status-notice">
+    <span>You subscribed to this competency on <%= l competency.subscribed_date_for(current_user), format: :long %></span>
+  </div>
+
+  <input
+   data-path="<%= unsubscribe_competency_path(competency) %>"
+   type="submit"
+   class="competency-subscribe subscribed"
+   value="I'm not interested in this anymore">
+<% end %>
