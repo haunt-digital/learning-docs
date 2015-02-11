@@ -1,12 +1,15 @@
-<!-- <nav role="navigation">
+<nav role="navigation">
   <ul class="navigation-menu">
     <li class="nav-link competency-status">
-      <a href="<%= root_path %>">
-        Feed
+      <a href="<%= competency_path(@competency) %>">
+        <%= @competency.title %>
+        <span class="badge-success"><%= competency_percentage(@competency) %></span>
+        <span class="badge-success"><%= competency_score(@competency) %></span>
+        <span class="badge-notice"><%= skill_completion(@competency) %> skills</span>
       </a>
     </li>
   </ul>
-</nav> -->
+</nav>
 
 <nav role="navigation" class="secondary">
   <ul class="navigation-menu">
