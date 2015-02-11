@@ -1,5 +1,4 @@
 $badge-font-size: 0.85em !default;
-$large-badge-font-size: 1.15em;
 
 @mixin badge($color: $medium-gray, $font-size: $badge-font-size ) {
   @include transition (all $base-fade-speed ease-in-out);
@@ -36,20 +35,4 @@ $large-badge-font-size: 1.15em;
 
 .badge-success {
   @include badge($success-color, $badge-font-size);
-}
-
-.large-badge-alert {
-  @include badge($alert-color, $large-badge-font-size);
-}
-
-.large-badge-error {
-  @include badge($error-color, $large-badge-font-size);
-}
-
-.large-badge-notice {
-  @include badge($notice-color, $large-badge-font-size);
-}
-
-.large-badge-success {
-  @include badge($success-color, $large-badge-font-size);
 }
