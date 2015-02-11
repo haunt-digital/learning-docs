@@ -2,6 +2,8 @@ class CompetenciesController < ApplicationController
   include ReturnsLayoutlessAjax
   include ManagesSubscription
 
+  before_filter :authenticate_user!
+
   def show
     # Scope by user eventually?
     @competency = Competency.find(params[:id])

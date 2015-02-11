@@ -4,6 +4,8 @@ class TasksController < ApplicationController
   include NotifiesCompletionPoints
   include RedirectsLogicallyOnCompletion
 
+  before_filter :authenticate_user!
+
   def show
     # Scope by user eventually?
     @task = Task.find(params[:id])
