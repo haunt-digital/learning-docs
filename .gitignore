@@ -10,6 +10,7 @@
 #compiling assets locally, so allow
 #/public/assets
 /public/system
+/public/dev-assets/
 
 *.pyc
 
