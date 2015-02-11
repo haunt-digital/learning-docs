@@ -7,6 +7,51 @@
   @include outer-container();
   @include animate(fadeIn, $base-fade-speed);
 
+
+  & > .header {
+    padding-top: $base-spacing/2;
+
+    h1 {
+      font-size: $base-font-size*2;
+      color: $medium-gray;
+      line-height: $base-font-size*1.5;
+      @include span-columns(8);
+    }
+
+    > .subscribe {
+      input {
+        @include span-columns(4);
+        height: 48px;
+      }
+
+      input.competency-subscribe {
+        float: right;
+        @include transition( all $base-fade-speed );
+
+        &.unsubscribed {
+          background-color: darken($success-color, 38%);
+        }
+
+        &.subscribed {
+          background-color: darken($notice-color, 35%);
+        }
+      }
+
+      input.competency-subscribe:hover {
+        @include transition( all $base-fade-speed );
+
+        &.unsubscribed {
+          background-color: darken($success-color, 45%);
+        }
+
+        &.subscibed {
+          background-color: darken($notice-color, 25%);
+        }
+      }
+    }
+  }
+
+
   // More explicit styles for task-card items live under
   // tasks.css.scss
   .skills {
@@ -16,10 +61,8 @@
       @include span-columns(4 of 12);
     }
   }
+}
 
-
-  // > .description {
-  //   padding-top: 0;
-  //   @include span-columns(12);
-  // }
+li.competency-status * span:first-child {
+  margin-left: $base-spacing/2;
 }

@@ -4,7 +4,7 @@ class Skill < ActiveRecord::Base
 
   has_attached_file :banner, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
 
-  validates :title, length: { maximum: 128 }
+  validates :title, presence: true, length: { maximum: 128 }
   validates_attachment_content_type :banner, :content_type => /\Aimage\/.*\Z/
 
   include RendersMarkdown

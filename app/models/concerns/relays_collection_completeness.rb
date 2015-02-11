@@ -6,15 +6,34 @@ module RelaysCollectionCompleteness
       define_method(:completable_types) do
         args
       end
+
+      args.each do |type|
+        define_method("#{type}_complete_for".to_sym) do |user|
+          send(type).marked_as(:complete, :by => user).count
+        end
+      end
     end
   end
 
-  def collections_completion_score_for(user)
+
+  def collections_completion_score_for(user, flat = false)
     score = 0
     completable_types.each do |type|
       count = send(type).marked_as(:complete, :by => user).count
       unless count < 1
-        self.class.reflect_on_association(type).class_name
+        score += count * send(type).points_for_completion
+      end
+    end
+
+    score
+  end
+
+
+  def collections_possible_score
+    score = 0
+    completable_types.each do |type|
+      count = send(type).count
+      unless count < 1
         score += count * send(type).points_for_completion
       end
     end

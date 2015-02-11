@@ -52,10 +52,6 @@
   }
 }
 
-li.competency-status * span:first-child {
-  margin-left: $base-spacing/2;
-}
-
 .card.skill-card[data-complete=true] {
   @include transition (all $base-fade-speed ease-in-out);
   color: $medium-gray;

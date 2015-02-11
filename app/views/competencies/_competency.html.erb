@@ -2,10 +2,16 @@
   data-id="<%= competency.id %>"
   data-path="<%= url_for(competency) %>">
 
-<!--   <h1><%= competency.title %> competency</h1>
- -->
+  <div class="header">
+    <h1><%= competency.title %> competency</h1>
+    <div class="subscribe">
+      <%= render partial: 'subscribe', object: competency, as: :competency %>
+    </div>
+  </div>
 
   <div class="skills">
+    <hr/>
+
     <%= render partial: 'skills/card', collection: competency.skills, as: :skill %>
   </div>
 </section>

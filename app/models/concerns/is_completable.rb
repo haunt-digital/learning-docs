@@ -25,7 +25,7 @@ module IsCompletable
   end
 
   def completion_date_for(user)
-    mark = Markable::Mark.where(marker: user, markable: self).first
+    mark = Markable::Mark.where(marker: user, markable: self, mark: 'complete').first
     mark.created_at
   end
 end

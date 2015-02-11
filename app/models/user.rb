@@ -7,7 +7,6 @@ class User < ActiveRecord::Base
 
   acts_as_marker
 
-
   def competencies
     # This is just for testing, make real code here
     # not just all competencies some day...

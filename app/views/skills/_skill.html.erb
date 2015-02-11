@@ -18,10 +18,11 @@
 
   <div class="description">
     <%= skill.description_html %>
-    <hr/>
   </div>
 
   <div class="tasks">
+    <hr/>
+
     <%= render partial: 'tasks/card', collection: skill.tasks, as: :task %>
   </div>
 </section>

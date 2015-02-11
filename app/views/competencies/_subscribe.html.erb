@@ -1,0 +1,13 @@
+<% if subscribed?(competency) %>
+  <input
+    data-path="<%= '' %>"
+    type="submit"
+    class="competency-subscribe subscribed"
+    value="I'm not interested in this anymore">
+<% else %>
+  <input
+    data-path="<%= '' %>"
+    type="submit"
+    class="competency-subscribe unsubscribed"
+    value="This is important to me">
+<% end %>
