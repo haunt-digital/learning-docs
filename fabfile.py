@@ -253,6 +253,10 @@ def deploy(branch='master', debug=False):
   puts(green("Uncompressing site package"))
   sudo_run('unzip -q -o -u '+site_package+' -d ' + current_project_dir)
 
+  with settings(warn_only=True):
+    puts(green("Shutting down app"))
+    app_stop()
+
   puts(green("Removing link to previous release"))
   unlink(site_dir, True, force=True)
 
@@ -265,10 +269,6 @@ def deploy(branch='master', debug=False):
   # set the ownership of the just deployed package
   puts(green("Setting permissions for prduction environment"))
   set_appperms_live(site_dir)
-
-  with settings(warn_only=True):
-    puts(green("Shutting down app"))
-    app_stop()
 
   with cd(sitedir):
     puts(green("Bundle updating"))
