@@ -72,3 +72,16 @@ On a new Ubuntu 14.04 server:
     sudo apt-get install libmysqlclient-dev
 
     sudo apt-get install libssl-dev
+
+    sudo apt-get install libreadline-dev
+
+    sudo apt-get install libyaml-dev
+
+    sudo apt-get install libsqlite3-dev sqlite3
+
+    sudo apt-get install libxml2-dev
+
+    sudo apt-get install libxslt1-dev
+
+    sudo apt-get install libcurl4-openssl-dev
+
