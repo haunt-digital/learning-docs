@@ -1,12 +1,15 @@
 # Rename this file to .env, and adjust settings as required.
 
+# For a full deploy, create /etc/SITENAME/env-variables.conf, and that
+# will be symlinked as .env after each deploy by our fabfile.
+
 ENVIRONMENT=development
 
 UNSAFE_PRODUCTION=false
 
 SECRET_KEY_BASE=put-something-in-me-for-production
 
-
+# Leaving me empty will default to sqlite
 DB_NAME=
 DB_USER=
 DB_PASS=
@@ -14,8 +17,9 @@ DB_POOL=
 DB_TIMEOUT=
 
 BIND='tcp://0.0.0.0:3000'
-# production example - unix:///var/run/puma.sock
 
+# Production example:
+# unix:///var/learning-docs.sock
 
 PUMA_WORKERS=3
 MIN_THREADS=1
