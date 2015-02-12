@@ -266,9 +266,9 @@ def deploy(branch='master', debug=False):
   puts(green("Setting permissions for prduction environment"))
   set_appperms_live(site_dir)
 
-  # only after the first time
-  puts(green("Shutting down app"))
-  app_stop()
+  with settings(warn_only=True):
+    puts(green("Shutting down app"))
+    app_stop()
 
   with cd(sitedir):
     puts(green("Bundle updating"))
