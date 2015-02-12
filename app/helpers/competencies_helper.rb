@@ -5,6 +5,11 @@ module CompetenciesHelper
 
   def skill_completion(competency)
     complete = competency.skills_complete_for(current_user)
+
+    unless complete > 0
+      return ''
+    end
+
     total = competency.skills.count
     ratio = complete.to_f / total.to_f
 
@@ -22,6 +27,10 @@ module CompetenciesHelper
   def competency_score(competency)
     score = competency.collections_completion_score_for(current_user)
 
+    unless score > 0
+      return ''
+    end
+
     if score > (200)
       badge_class = 'success'
     elsif score.between?(80, 200)
@@ -35,6 +44,11 @@ module CompetenciesHelper
 
   def competency_percentage(competency)
     total = competency.tasks.count
+
+    unless total > 0
+      return ''
+    end
+
     completed = competency.tasks_complete_for(current_user)
     percentage = completed.to_f / total.to_f * 100.0
 
