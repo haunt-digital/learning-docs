@@ -4,7 +4,7 @@ threads Integer(ENV['MIN_THREADS']  || 2), Integer(ENV['MAX_THREADS'] || 4)
 preload_app!
 
 rackup      DefaultRackup
-port        ENV['PORT']     || 3000
+bind        ENV['BIND'] || 'tcp://0.0.0.0:3000'
 environment ENV['ENVIRONMENT'] || 'development'
 
 # on_worker_boot do

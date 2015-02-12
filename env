@@ -6,12 +6,17 @@ UNSAFE_PRODUCTION=false
 
 SECRET_KEY_BASE=put-something-in-me-for-production
 
-PORT=3000
+
 DB_NAME=
 DB_USER=
 DB_PASS=
 DB_POOL=
 DB_TIMEOUT=
-PUMA_WORKERS=6
+
+BIND='tcp://0.0.0.0:3000'
+# production example - unix:///var/run/puma.sock
+
+
+PUMA_WORKERS=3
 MIN_THREADS=1
-MAX_THREADS=8
+MAX_THREADS=4
