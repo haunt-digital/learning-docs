@@ -7,10 +7,10 @@ from fabric.contrib import *
 
 """ These are settings specific to this site
 """
-PRODUCTION_HOST='somehost'
+PRODUCTION_HOST='learning-docs.hauntdigital.co.nz'
 
 web_docs_dir = '/var/www'
-site_name = 'sitename'
+site_name = 'learning-docs'
 release_dir = web_docs_dir + '/releases/' + site_name
 sitedir = web_docs_dir + '/' + site_name
 service_name = site_name
@@ -153,12 +153,15 @@ def remote(host):
 
 @task
 def set_appperms_live(sitedir):
-  """ Makes any changes to permissions specific for live ez site
+  """ Makes any changes to permissions required after deploy
   """
   chmod(path=sitedir,mode=755,recursive=True,sudo=True)
   chown(path=sitedir,owner='root',group=nginx_user(),recursive=True,sudo=True)
 
 
+@task
+  """ Dumps mysql
+  """
 def db_dump(database=None, user=None, host='localhost', password=None, out_file=None, compress=True):
   if password is None:
     if compress is True:
@@ -229,12 +232,7 @@ def app_start():
 
 @task
 def get_environment():
-    environment = env.run('hostname')
-    if environment == 'ip-172-31-15-89':
-        return 'staging'
-    else:
-        return 'local'
-
+    return env.run('hostname')
 
 @task
 def db_create(database=None, user=None, host='localhost'):
@@ -251,7 +249,7 @@ def db_create(database=None, user=None, host='localhost'):
 
 
 def symlink_env_files():
-  sudo_run('ln -s ' + '/etc/' + project_name + '/.env ' + sitedir + '/.env')
+  sudo_run('ln -s ' + '/etc/' + project_name + '/env-variables.conf ' + sitedir + '/.env')
 
 @task
 def deploy(branch='master', debug=False):
@@ -265,7 +263,7 @@ def deploy(branch='master', debug=False):
     output['stdout'] = True
 
   environment = get_environment()
-  puts(green("Environment is : ") + yellow(environment))
+  puts(green("Host is : ") + yellow(environment))
 
   puts(green("Generating site package"))
   project = get_project_name(branch)
