@@ -7,6 +7,9 @@ ENVIRONMENT=development
 
 UNSAFE_PRODUCTION=false
 
+ADMIN_PASSWORD=password
+ADMIN_EMAIL=password
+
 SECRET_KEY_BASE=put-something-in-me-for-production
 
 # Leaving me empty will default to sqlite

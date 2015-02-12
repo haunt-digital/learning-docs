@@ -160,22 +160,6 @@ def set_appperms_live(sitedir):
 
 
 @task
-  """ Dumps mysql
-  """
-def db_dump(database=None, user=None, host='localhost', password=None, out_file=None, compress=True):
-  if password is None:
-    if compress is True:
-      env.run('mysqldump --user=%s --host=%s %s | gzip > %s ' % (user, host, database, out_file + '.gz'))
-    else:
-      env.run('mysqldump --user=%s --host=%s %s > %s ' % (user, host, database, out_file))
-  else:
-    if compress is True:
-      env.run('mysqldump --user=%s --password="%s" --host=%s %s | gzip > %s' % (user, password, host, database, out_file + '.gz'))
-    else:
-      env.run('mysqldump --user=%s --password="%s" --host=%s %s > %s' % (user, password, host, database, out_file))
-
-
-@task
 def git_archive(branch='master', out='/tmp/outfile.zip'):
     """ RUN: "git archive [branch] -o [out (default '/tmp/outfile.zip')]" """
     # archive the git branch
@@ -234,19 +218,6 @@ def app_start():
 def get_environment():
     return env.run('hostname')
 
-@task
-def db_create(database=None, user=None, host='localhost'):
-  """ Creates a new MySQL database schema
-  """
-  if user is None:
-    user = env.user
-  if database is None:
-    database = prompt('Enter database name', default='unknown')
-  if env.run is lrun:
-    env.run('echo "CREATE DATABASE %s;"| mysql --batch --user=%s -p --host=%s' % (database, user, host))
-  else:
-    env.run('echo "CREATE DATABASE %s;"| mysql --batch --user=%s -p --host=%s' % (database, user, host), pty=True)
-
 
 def symlink_env_files():
   sudo_run('ln -s ' + '/etc/' + project_name + '/env-variables.conf ' + sitedir + '/.env')
@@ -295,19 +266,25 @@ def deploy(branch='master', debug=False):
   puts(green("Setting permissions for prduction environment"))
   set_appperms_live(site_dir)
 
-  puts(green("Shutting down app"))
-  app_stop()
+  # only after the first time
+  # puts(green("Shutting down app"))
+  # app_stop()
 
   with cd(sitedir):
     puts(green("Bundle updating"))
     sudo_run('bundle')
 
     puts(green("Running migrations"))
-    sudo_run(' RAILS_ENV=production bundle exec rake db:migrate')
+    sudo_run('RAILS_ENV=production bundle exec rake db:migrate')
+
+    # Only the first time
+    puts(green("Seeding initial data"))
+    sudo_run('RAILS_ENV=production bundle exec rake db:seed')
 
     puts(green("Clearing cache"))
-    sudo_run(' RAILS_ENV=production bundle exec rake tmp:cache:clear')
+    sudo_run('RAILS_ENV=production bundle exec rake tmp:cache:clear')
 
+    # Not for this project - commit compiled assets
     # puts(green("Compiling static assets"))
     # sudo_run('RAILS_ENV=production bundle exec rake assets:precompile')
 
