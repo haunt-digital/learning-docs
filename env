@@ -22,7 +22,7 @@ DB_TIMEOUT=
 BIND='tcp://0.0.0.0:3000'
 
 # Production example:
-# unix:///var/learning-docs.sock
+# unix:///var/run/learning-docs.sock
 
 PUMA_WORKERS=3
 MIN_THREADS=1

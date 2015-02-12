@@ -267,8 +267,8 @@ def deploy(branch='master', debug=False):
   set_appperms_live(site_dir)
 
   # only after the first time
-  # puts(green("Shutting down app"))
-  # app_stop()
+  puts(green("Shutting down app"))
+  app_stop()
 
   with cd(sitedir):
     puts(green("Bundle updating"))
@@ -278,11 +278,14 @@ def deploy(branch='master', debug=False):
     sudo_run('RAILS_ENV=production bundle exec rake db:migrate')
 
     # Only the first time
-    puts(green("Seeding initial data"))
-    sudo_run('RAILS_ENV=production bundle exec rake db:seed')
+    # puts(green("Seeding initial data"))
+    # sudo_run('RAILS_ENV=production bundle exec rake db:seed')
 
     puts(green("Clearing cache"))
     sudo_run('RAILS_ENV=production bundle exec rake tmp:cache:clear')
+
+    puts(green("Rebuilding tmp"))
+    sudo_run('RAILS_ENV=production bundle exec rake tmp:create')
 
     # Not for this project - commit compiled assets
     # puts(green("Compiling static assets"))
