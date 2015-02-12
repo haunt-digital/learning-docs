@@ -5,8 +5,6 @@
 
   <%= render partial: 'shared/done_ribbon', object: task, as: :item %>
 
-  <% cache(task) do %>
-
     <div class="card-image">
       <%= image_tag(task.banner.file? ? task.banner.url : @skill.banner.url) %>
     </div>
@@ -16,7 +14,4 @@
     <div class="card-copy">
       <%= truncate(task.description_html) %>
     </div>
-
-  <% end %>
-
 </div>

@@ -5,8 +5,6 @@
 
   <%= render partial: 'shared/done_ribbon', object: skill, as: :item %>
 
-  <% cache(skill) do %>
-
     <div class="card-image">
       <%= image_tag(skill.banner.url) %>
     </div>
@@ -17,5 +15,4 @@
       <%= truncate(skill.description_html) %>
     </div>
 
-  <% end %>
 </div>

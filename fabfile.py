@@ -13,6 +13,7 @@ web_docs_dir = '/var/www'
 site_name = 'learning-docs'
 release_dir = web_docs_dir + '/releases/' + site_name
 sitedir = web_docs_dir + '/' + site_name
+files_dir = web_docs_dir + '/files/' + site_name
 service_name = site_name
 project_name = site_name
 webroot_mode = '775'
@@ -220,7 +221,10 @@ def get_environment():
 
 
 def symlink_env_files():
-  sudo_run('ln -s ' + '/etc/' + project_name + '/env-variables.conf ' + sitedir + '/.env')
+  sudo_run('ln -s ' + '/etc/' + site_name + '/env-variables.conf ' + sitedir + '/.env')
+
+def symlink_files_dir():
+  sudo_run('ln -s ' + files_dir + ' ' + sitedir + '/public/system')
 
 @task
 def deploy(branch='master', debug=False):
@@ -265,6 +269,9 @@ def deploy(branch='master', debug=False):
 
   puts(green("Symlinking .env file"))
   symlink_env_files()
+
+  puts(green("Symlinking files directory"))
+  symlink_files_dir()
 
   # set the ownership of the just deployed package
   puts(green("Setting permissions for prduction environment"))
