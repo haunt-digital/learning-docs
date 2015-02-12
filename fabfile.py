@@ -287,7 +287,7 @@ def deploy(branch='master', debug=False):
     puts(green("Rebuilding tmp"))
     sudo_run('RAILS_ENV=production bundle exec rake tmp:create')
 
-    # Not for this project - commit compiled assets
+    # Not for this project - commit compiled assets to git on local.
     # puts(green("Compiling static assets"))
     # sudo_run('RAILS_ENV=production bundle exec rake assets:precompile')
 
