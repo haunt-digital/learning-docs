@@ -14,7 +14,7 @@
         <h1><%= task.title %></h1>
       </span>
     </div>
-    <div class="parallax-background" style="background-image: url('<%= task.banner.file? ? task.banner.url : @skill.banner.url %>');"></div>
+    <div class="parallax-background" style="background-image: url('<%= asset_path task.banner.file? ? task.banner.url : @skill.banner.url %>');"></div>
   </div>
 
   <span class="modified">Last modified <%= l task.updated_at, format: :short %></span>

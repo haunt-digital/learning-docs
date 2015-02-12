@@ -1,5 +1,5 @@
 class ExternalResource < ActiveRecord::Base
-  belongs_to :task
+  belongs_to :task, :touch => true
 
   validates :title, presence: true, length: { maximum: 128 }
 

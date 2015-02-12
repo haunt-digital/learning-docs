@@ -8,10 +8,6 @@ module CompetenciesHelper
 
     complete = competency.skills_complete_for(current_user)
 
-    unless complete > 0
-      return ''
-    end
-
     total = competency.skills.count
     ratio = complete.to_f / total.to_f
 
