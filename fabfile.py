@@ -168,6 +168,13 @@ def git_archive(branch='master', out='/tmp/outfile.zip'):
 
 
 @task
+def compile_and_checkin_rails_production_assets_locally():
+  with settings(warn_only=True):
+    local("RAILS_ENV=production bundle exec rake assets:precompile")
+    local("git commit public -m 'Adding compiled production assets for deployment'")
+
+
+@task
 def files_sync_from_remote(src=None,dst=None,user=None,delete=False):
   if src is None:
     src = prompt('Enter source path: ')
@@ -239,6 +246,10 @@ def deploy(branch='master', debug=False):
 
   environment = get_environment()
   puts(green("Host is : ") + yellow(environment))
+
+  # This particular project, we do it this way.
+  puts(green("Compiling and checking in production assets locally."))
+  compile_and_checkin_rails_production_assets_locally()
 
   puts(green("Generating site package"))
   project = get_project_name(branch)
