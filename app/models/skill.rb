@@ -1,8 +1,8 @@
 class Skill < ActiveRecord::Base
   has_and_belongs_to_many :tasks
-  has_and_belongs_to_many :competencies, :touch => true
+  has_and_belongs_to_many :competencies
 
-  after_save :touch_competencies
+  after_commit :touch_competencies
 
   has_attached_file :banner, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => 'missing.jpg'
 

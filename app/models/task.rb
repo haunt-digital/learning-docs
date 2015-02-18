@@ -2,7 +2,7 @@ class Task < ActiveRecord::Base
   has_many :external_resources, dependent: :destroy
   has_and_belongs_to_many :skills
 
-  after_save :touch_skills
+  after_commit :touch_skills
 
   has_attached_file :banner, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => 'missing.jpg'
 
