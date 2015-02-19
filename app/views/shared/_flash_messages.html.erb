@@ -1,5 +1,5 @@
 <% flash.each do |type, message| %>
-  <div class="flash-<%= type.gsub('_', '-') %> dismissable">
+  <div class="flash-<%= type.gsub(/__\S+/, '').gsub('_', '-') %> dismissable">
     <span><%= message %></span>
   </div>
 <% end %>
