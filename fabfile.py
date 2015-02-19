@@ -171,7 +171,7 @@ def git_archive(branch='master', out='/tmp/outfile.zip'):
 def compile_and_checkin_rails_production_assets_locally():
   with settings(warn_only=True):
     local("RAILS_ENV=production bundle exec rake assets:precompile")
-    local("git commit public -m 'Adding compiled production assets for deployment'")
+    local("git commit -a -m 'Adding compiled production assets for deployment'")
 
 
 @task
