@@ -31,7 +31,7 @@ module ManagesCompletion
 
   def refresh_parent_completion_statuses(parents)
     parents.each do |item|
-      update_parent_completion_status item, :silent
+      update_parent_completion_status item
     end
   end
 

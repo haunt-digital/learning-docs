@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
     return if response.headers['X-Redirect-Requested']
 
     unless flash.empty?
-      response.headers['X-Flash-Message-Present'] = true;
+      response.headers['X-Flash-Present'] = true;
 
       flash.each do |k,v|
         puts k.titlecase.gsub(' ', '-')
