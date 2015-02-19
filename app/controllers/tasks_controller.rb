@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   include ReturnsLayoutlessAjax
   include ManagesCompletion
-  include NotifiesCompletionPoints
+  include NotifiesCompletion
   include RedirectsLogicallyOnCompletion
 
   before_filter :authenticate_user!
@@ -16,7 +16,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @skill = Skill.find(params[:skill_id])
 
-    record_completion @task, @skill
+    record_completion @task, @skill, @task.skills
 
     attempt_completion_redirect @task, @skill
 
@@ -27,7 +27,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @skill = Skill.find(params[:skill_id])
 
-    remove_completion @task, @skill
+    remove_completion @task, @skill, @task.skills
 
     render partial: 'status', object: @task, as: :task
   end

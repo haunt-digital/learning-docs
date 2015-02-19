@@ -12,11 +12,10 @@ class ApplicationController < ActionController::Base
     unless flash.empty?
       response.headers['X-Flash-Message-Present'] = true;
 
-      ['error', 'warning', 'notice', 'success'].each do |type|
-        unless flash[type].blank?
-          header_key = 'X-Flash-Message-' + type.titlecase
-          response.headers[header_key] = flash[type]
-        end
+      flash.each do |k,v|
+        puts k.titlecase.gsub(' ', '-')
+        header_key = 'X-Flash-Message-' + k.titlecase.gsub(' ', '-')
+        response.headers[header_key] = v
       end
 
       flash.discard

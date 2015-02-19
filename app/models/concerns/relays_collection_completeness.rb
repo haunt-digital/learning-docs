@@ -16,7 +16,7 @@ module RelaysCollectionCompleteness
   end
 
 
-  def collections_completion_score_for(user, flat = false)
+  def collections_completion_score_for(user)
     score = 0
     completable_types.each do |type|
       count = send(type).marked_as(:complete, :by => user).count

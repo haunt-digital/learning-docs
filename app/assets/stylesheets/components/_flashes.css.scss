@@ -37,10 +37,18 @@
   @include flash($success-color);
 }
 
-.flash-skill_points {
+.flash-skill-points {
   @include flash($success-color);
 }
 
-.flash-task_points {
+.flash-task-points {
+  @include flash($success-color);
+}
+
+.flash-skill-complete {
+  @include flash($success-color);
+}
+
+.flash-task-complete {
   @include flash($success-color);
 }

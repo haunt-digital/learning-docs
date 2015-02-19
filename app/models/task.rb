@@ -19,6 +19,7 @@ class Task < ActiveRecord::Base
   points_for_completion 20
   completion_type_name 'Task'
 
+
   def touch_skills
     skills.each { |skill| skill.touch }
   end
