@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150220220521) do
+ActiveRecord::Schema.define(version: 20150220224105) do
 
   create_table "competencies", force: true do |t|
     t.string   "title"
@@ -43,6 +43,18 @@ ActiveRecord::Schema.define(version: 20150220220521) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
+
+  create_table "file_uploads", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "task_id"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "marks", id: false, force: true do |t|
     t.integer  "marker_id"
@@ -85,6 +97,16 @@ ActiveRecord::Schema.define(version: 20150220220521) do
   add_index "skills_tasks", ["skill_id"], name: "index_skills_tasks_on_skill_id"
   add_index "skills_tasks", ["task_id"], name: "index_skills_tasks_on_task_id"
 
+  create_table "task_components", force: true do |t|
+    t.integer  "task_id"
+    t.integer  "component_id"
+    t.string   "component_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "task_components", ["task_id"], name: "index_task_components_on_task_id"
+
   create_table "tasks", force: true do |t|
     t.string   "title"
     t.text     "description"
@@ -94,6 +116,13 @@ ActiveRecord::Schema.define(version: 20150220220521) do
     t.string   "banner_content_type"
     t.integer  "banner_file_size"
     t.datetime "banner_updated_at"
+  end
+
+  create_table "text_blocks", force: true do |t|
+    t.text     "body"
+    t.integer  "task_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

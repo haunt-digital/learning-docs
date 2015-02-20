@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ExternalResourceTest < ActiveSupport::TestCase
+class FileUploadTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ExternalResourcesControllerTest < ActionController::TestCase
+class TextBlockTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

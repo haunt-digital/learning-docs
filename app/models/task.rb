@@ -1,6 +1,10 @@
 class Task < ActiveRecord::Base
   has_and_belongs_to_many :skills
 
+  has_many :task_components
+  has_many :file_uploads, through: :task_components, source: :component, source_type: 'FileUpload'
+  has_many :text_blocks, through: :task_components, source: :component, source_type: 'TextBlock'
+
   after_commit :touch_skills
 
   has_attached_file :banner, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => 'missing.jpg'

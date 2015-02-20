@@ -2,10 +2,8 @@
 
 one:
   title: MyString
-  uri: MyString
   description: MyText
 
 two:
   title: MyString
-  uri: MyString
   description: MyText
