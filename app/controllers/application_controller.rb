@@ -13,7 +13,6 @@ class ApplicationController < ActionController::Base
       response.headers['X-Flash-Present'] = true;
 
       flash.each do |k,v|
-        puts k.titlecase.gsub(' ', '-')
         header_key = 'X-Flash-Message-' + k.gsub('_', '-').titlecase.gsub(' ', '-')
         response.headers[header_key] = v
       end
