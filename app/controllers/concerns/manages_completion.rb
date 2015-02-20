@@ -1,7 +1,7 @@
 module ManagesCompletion
   extend ActiveSupport::Concern
 
-  def record_completion(item, context, parents)
+  def record_completion(item, context, parents = [])
     current_user.set_mark :complete, item
 
     trigger_completion_notifications item
@@ -10,7 +10,7 @@ module ManagesCompletion
   end
 
 
-  def remove_completion(item, context, parents)
+  def remove_completion(item, context, parents = [])
     current_user.remove_mark :complete, item
     flash['warning'] = "#{item.class.completion_type_name} marked as todo"
 
@@ -18,7 +18,7 @@ module ManagesCompletion
   end
 
 
-  def refresh_completion_statuses(context, parents)
+  def refresh_completion_statuses(context, parents = [])
     refresh_context_completion_status context
     refresh_parent_completion_statuses parents
   end
