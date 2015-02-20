@@ -53,7 +53,7 @@ $(function() {
 
           setTimeout(function () {
             appendFlashMessage(msg, type.toLowerCase());
-          }, i*20);
+          }, i*30);
         }
       });
     }
