@@ -44,6 +44,7 @@ gem 'auto_html'
 gem 'markable', github: 'chrome/markable'
 gem 'paperclip', '~> 4.2'
 gem 'activerecord-session_store'
+gem 'ranked-model'
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 
