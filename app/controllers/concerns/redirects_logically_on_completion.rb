@@ -10,7 +10,11 @@ module RedirectsLogicallyOnCompletion
   end
 
   def next_in_context_of(current_item, context)
-    current_item.next_in_context_of(context, current_user)
+    if current_item.respond_to?(:next_in_context_of)
+      current_item.next_in_context_of(context, current_user)
+    else
+      nil
+    end
   end
 
   def add_client_redirect_to_next(current_item, context)
