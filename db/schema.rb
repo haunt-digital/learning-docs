@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150212001114) do
+ActiveRecord::Schema.define(version: 20150220220521) do
 
   create_table "competencies", force: true do |t|
     t.string   "title"
@@ -43,17 +43,6 @@ ActiveRecord::Schema.define(version: 20150212001114) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
-
-  create_table "external_resources", force: true do |t|
-    t.string   "title"
-    t.string   "uri"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "task_id"
-  end
-
-  add_index "external_resources", ["task_id"], name: "index_external_resources_on_task_id"
 
   create_table "marks", id: false, force: true do |t|
     t.integer  "marker_id"

@@ -1,5 +1,4 @@
 class Task < ActiveRecord::Base
-  has_many :external_resources, dependent: :destroy
   has_and_belongs_to_many :skills
 
   after_commit :touch_skills

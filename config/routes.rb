@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
-  resources :external_resources, only: [:show]
+  # resources :external_resources, only: [:show]
 
   resources :skills, only: [:show] do
     resources :tasks, only: [:show] do
