@@ -4,4 +4,8 @@ class TaskComponent < ActiveRecord::Base
 
   include RankedModel
   ranks :task_order
+
+  POSITIONINGS = %w( full primary secondary )
+
+  validates_inclusion_of :positioning, :in => POSITIONINGS
 end
