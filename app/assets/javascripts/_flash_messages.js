@@ -40,12 +40,20 @@ $(function() {
       var headers = response.getAllResponseHeaders();
       headers = parseResponseHeaders(headers);
 
+      var i = 0;
+
       $.each(headers, function( index, value ) {
+        i++;
+
         if (index.match("^X-Flash-Message-[^Present]")) {
+
           var msg = response.getResponseHeader(index);
           var type = index.split('X-Flash-Message-')[1]
           var type = type.split('--')[0];
-          appendFlashMessage(msg, type.toLowerCase());
+
+          setTimeout(function () {
+            appendFlashMessage(msg, type.toLowerCase());
+          }, i*20);
         }
       });
     }
