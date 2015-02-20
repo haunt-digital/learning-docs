@@ -1,0 +1,2 @@
+class TaskComponentsController < ApplicationController
+end

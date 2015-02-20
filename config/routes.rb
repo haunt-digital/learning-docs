@@ -10,8 +10,6 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
-  # resources :external_resources, only: [:show]
-
   resources :skills, only: [:show] do
     resources :tasks, only: [:show] do
       post 'complete', :on => :member, as: :task_complete
@@ -22,6 +20,11 @@ Rails.application.routes.draw do
   resources :competencies, only: [:show] do
     post 'subscribe', :on => :member, as: :subscribe
     post 'unsubscribe', :on => :member, as: :unsubscribe
+  end
+
+  resources :task_components, except: [:show, :index] do
+    resources :file_uploads, except: [:show, :index]
+    resources :text_blocks, except: [:show, :index]
   end
 
   # post 'tasks/:id/complete' => 'tasks#mark_complete', as: :task_complete
