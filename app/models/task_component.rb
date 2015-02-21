@@ -8,4 +8,13 @@ class TaskComponent < ActiveRecord::Base
   POSITIONINGS = %w( full primary secondary )
 
   validates_inclusion_of :positioning, :in => POSITIONINGS
+
+  def self.creatable_models
+    [TextBlock, FileUpload]
+  end
+
+
+  def positionings
+    POSITIONINGS
+  end
 end

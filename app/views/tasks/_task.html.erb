@@ -25,8 +25,9 @@
 
   <div class="resources">
     <hr/>
-    <%= task.task_components.first.component_type %>
-    <!-- render task.external_resources -->
+    <%= render partial: 'add_task_component' %>
+
+    <%= render task.task_components.rank(:task_order) %>
   </div>
 
   <div class="status">

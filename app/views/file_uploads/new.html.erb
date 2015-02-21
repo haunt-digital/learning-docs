@@ -1,0 +1,9 @@
+<%= form_for @component, url: { action: "create" }, html: {:multipart => true} do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_area :description, size: "60x4" %>
+  <%= f.file_field :file %>
+  <%= select_tag(:component_position, options_for_select(TaskComponent::POSITIONINGS)) %>
+  <%= hidden_field_tag(:task_id, @task.id) %>
+  <%= hidden_field_tag(:skill_id, @skill.id) %>
+  <%= f.submit "Add" %>
+<% end %>

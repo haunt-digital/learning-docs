@@ -1,0 +1,7 @@
+<%= form_for @component, url: { action: "create" }, html: {class: ''} do |f| %>
+  <%= f.text_area :body, size: "60x12" %>
+  <%= select_tag(:component_position, options_for_select(TaskComponent::POSITIONINGS)) %>
+  <%= hidden_field_tag(:task_id, @task.id) %>
+  <%= hidden_field_tag(:skill_id, @skill.id) %>
+  <%= f.submit "Add" %>
+<% end %>

@@ -43,7 +43,17 @@ function bindSkillProgressLinks() {
   });
 }
 
+function bindAddTaskComponentLinks() {
+  $('.add-task-component').click(function (event) {
+    event.preventDefault();
+    href = this.href;
+    // See task_component.js
+    loadTaskComponentForm(href);
+  });
+}
+
 $(function() {
   bindTaskComplete('section.task');
+  bindAddTaskComponentLinks();
   bindSkillProgressLinks();
 });
