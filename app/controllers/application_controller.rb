@@ -5,6 +5,22 @@ class ApplicationController < ActionController::Base
 
   after_filter :flash_to_headers
 
+
+  def render *args
+    # Handling for parsing the flash into headers
+    # even when sending a chunked response.
+    flash_to_headers
+    super
+
+    # Forcing discard which was broken for streamed
+    # responses.
+    # Try to only set the flash from post/put/del
+    if request.get?
+      flash.discard
+    end
+  end
+
+
   def flash_to_headers
     return unless request.xhr?
     return if response.headers['X-Redirect-Requested']

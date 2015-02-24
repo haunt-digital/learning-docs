@@ -7,6 +7,7 @@ class CompetenciesController < ApplicationController
   def show
     # Scope by user eventually?
     @competency = Competency.find(params[:id])
+    render stream: true
   end
 
   def subscribe

@@ -6,5 +6,7 @@ class SkillsController < ApplicationController
   def show
     # Scope by user eventually?
     @skill = Skill.find(params[:id])
+
+    render stream: true
   end
 end

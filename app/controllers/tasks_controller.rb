@@ -10,6 +10,8 @@ class TasksController < ApplicationController
     # Scope by user eventually?
     @task = Task.find(params[:id])
     @skill = Skill.find(params[:skill_id])
+
+    render stream: true
   end
 
   def complete
