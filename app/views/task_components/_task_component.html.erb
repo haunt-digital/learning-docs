@@ -1,3 +1,5 @@
+<%= render partial: 'tasks/add_task_component' %>
+
 <% cache(task_component.component) do %>
 
     <section class="task-component" data-id="<%= task_component.id %>" data-path="<%= url_for(task_component) %>">

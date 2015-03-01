@@ -1,5 +1,12 @@
-<% @creatable_objects.each do |obj| %>
-  <%= link_to obj.create_type_name, new_polymorphic_url([@skill, @task, obj]), :class => 'task-component-type-link' %>
-<% end %>
+
+
+<div class="task-component-select">
+  <% @creatable_objects.each do |obj| %>
+
+    <button data-path="<%= new_polymorphic_url([@skill, @task, obj]) %>" class="task-component-type-link" >
+      <%= obj.create_type_name %>
+    </button>
+  <% end %>
+</div>
 
 <div class="task-component-form-container"></div>

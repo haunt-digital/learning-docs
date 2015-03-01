@@ -13,11 +13,10 @@ class FileUpload < ActiveRecord::Base
   after_commit :touch_task, :touch_task_component
 
   include IsEmbeddable
-  create_type_name 'Upload'
+  create_type_name 'File upload'
 
   include RendersMarkdown
   renders_markdown :description
-
 
   def touch_task
     self.task.touch

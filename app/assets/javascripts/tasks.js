@@ -46,9 +46,11 @@ function bindSkillProgressLinks() {
 function bindAddTaskComponentLinks() {
   $('.add-task-component').click(function (event) {
     event.preventDefault();
-    href = this.href;
+    var href = $(this).data('path');
+    // dismiss($(this));
     // See task_component.js
-    loadTaskComponentForm(href);
+    var scope = $(this).parent().closest('div');
+    loadTaskComponentForm(href, scope);
   });
 }
 
