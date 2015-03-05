@@ -10,7 +10,7 @@ Edit the .env file as required for your environment. Database details are only r
 
 `$ rake db:migrate`
 
-Once you have tests (./spec) you can run these like:
+Once you have tests (./spec) you can run these this:
 
 `$ rspec`
 
