@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :competencies, only: [:show] do
+  resources :competencies, only: [:show, :index] do
     post 'subscribe', :on => :member, as: :subscribe
     post 'unsubscribe', :on => :member, as: :unsubscribe
   end

@@ -10,6 +10,12 @@ class CompetenciesController < ApplicationController
     render stream: true
   end
 
+  def index
+    @competencies = Competency.all
+    render stream: true
+  end
+
+
   def subscribe
     @competency = Competency.find(params[:id])
     record_subscription @competency

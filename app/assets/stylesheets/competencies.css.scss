@@ -28,13 +28,13 @@
       }
     }
 
-    .subscribe {
+    .subscribe, .view {
       input {
         @include span-columns(4);
         height: 48px;
       }
 
-      input.competency-subscribe {
+      input.competency-subscribe, input.competency-view {
         @include animate(fadeIn, $base-fade-speed);
 
         float: right;
@@ -49,7 +49,7 @@
         }
       }
 
-      input.competency-subscribe:hover {
+      input.competency-subscribe:hover, input.competency-view:hover {
         &.unsubscribed {
           background-color: darken($success-color, 45%);
         }

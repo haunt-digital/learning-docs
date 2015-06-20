@@ -37,8 +37,15 @@ function bindCompetencyUnsubscribe(candidate) {
   });
 }
 
+function bindCompetencyView(candidate) {
+  $('input.competency-view', candidate).click(function () {
+    window.location = $(this).data('path');
+  });
+}
+
 $(function() {
   bindSkillCardLinks();
   bindCompetencySubscribe('section.competency');
   bindCompetencyUnsubscribe('section.competency');
+  bindCompetencyView('section.competency');
 });
