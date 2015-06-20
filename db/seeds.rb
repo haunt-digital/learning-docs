@@ -6,8 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-user = User.new
-user.email = ENV['ADMIN_EMAIL']
-user.password = ENV['ADMIN_PASSWORD']
-user.password_confirmation = ENV['ADMIN_PASSWORD']
-user.save!
+User.create(
+  email: ENV['ADMIN_EMAIL'],
+  password: ENV['ADMIN_PASSWORD'],
+  password_confirmation: ENV['ADMIN_PASSWORD']
+)

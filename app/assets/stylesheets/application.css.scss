@@ -38,8 +38,6 @@
 @import "tasks";
 @import "skills";
 @import "competencies";
-@import "task_components";
-
 
 body {
   @include texture(180deg, $base-background-color, $base-background-color, 4, 1);

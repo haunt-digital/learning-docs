@@ -24,12 +24,7 @@
   </div>
 
   <div class="resources">
-    <hr/>
-    <% if task.task_components.empty? %>
-      <%= render partial: 'add_first_task_component' %>
-    <% else %>
-      <%= render task.task_components.rank(:task_order) %>
-    <% end %>
+
   </div>
 
   <div class="status">

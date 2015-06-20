@@ -14,9 +14,6 @@ Rails.application.routes.draw do
     resources :tasks, only: [:show] do
       post 'complete', :on => :member, as: :task_complete
       post 'redo', :on => :member, as: :task_redo
-      resources :task_components, only: :new
-      resources :file_uploads, only: :new
-      resources :text_blocks, only: :new
     end
   end
 
@@ -24,10 +21,6 @@ Rails.application.routes.draw do
     post 'subscribe', :on => :member, as: :subscribe
     post 'unsubscribe', :on => :member, as: :unsubscribe
   end
-
-  resources :task_components, except: [:show, :index, :new]
-  resources :file_uploads, except: [:show, :index]
-  resources :text_blocks, except: [:show, :index]
 
 
   # post 'tasks/:id/complete' => 'tasks#mark_complete', as: :task_complete

@@ -43,19 +43,8 @@ function bindSkillProgressLinks() {
   });
 }
 
-function bindAddTaskComponentLinks() {
-  $('.add-task-component').click(function (event) {
-    event.preventDefault();
-    var href = $(this).data('path');
-    // dismiss($(this));
-    // See task_component.js
-    var scope = $(this).parent().closest('div');
-    loadTaskComponentForm(href, scope);
-  });
-}
 
 $(function() {
   bindTaskComplete('section.task');
-  bindAddTaskComponentLinks();
   bindSkillProgressLinks();
 });
