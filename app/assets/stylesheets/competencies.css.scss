@@ -122,4 +122,6 @@ li.competency-status * span:first-child {
   margin-left: $base-spacing/2;
 }
 
-
+.competency.preview {
+  cursor: pointer;
+}

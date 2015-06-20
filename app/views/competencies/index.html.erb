@@ -4,25 +4,4 @@
   <%= render partial: 'progress_index' %>
 <% end %>
 
-<% @competencies.each do |competency| %>
-  <section class="competency"
-    data-id="<%= competency.id %>"
-    data-path="<%= url_for(competency) %>">
-
-    <div class="header">
-      <h1><%= competency.title %> competency</a></h1>
-
-      <div class="view">
-        <input
-         data-path="<%= competency_path(competency) %>"
-         type="submit"
-         class="competency-view"
-         value="Explore">
-      </div>
-    </div>
-
-    <div class="description">
-      <%= competency.description_html %>
-    </div>
-  </section>
-<% end %>
+<%= render partial: 'preview', :collection => @competencies, as: :competency  %>

@@ -3,6 +3,10 @@
 <nav role="navigation">
   <ul class="navigation-menu">
     <li class="nav-link competency-status">
+      <a href="<%= competencies_path %>">All competencies</a> |
+    </li>
+
+    <li class="nav-link competency-status">
       <a href="<%= competency_path(@competency) %>">
         <%= @competency.title %>
         <%= competency_percentage(@competency) %>

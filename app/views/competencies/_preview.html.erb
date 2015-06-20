@@ -1,0 +1,18 @@
+<section class="competency preview"
+  data-id="<%= competency.id %>"
+  data-path="<%= url_for(competency) %>">
+
+  <div class="header">
+    <h1><%= competency.title %> competency</h1>
+
+    <div class="view">
+      <%= competency_percentage(competency) %>
+      <%= competency_score(competency) %>
+      <%= skill_completion(competency) %>
+    </div>
+  </div>
+
+  <div class="description">
+    <%= competency.description_html %>
+  </div>
+</section>
