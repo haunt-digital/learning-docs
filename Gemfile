@@ -65,10 +65,14 @@ gem 'clockwork'
 gem 'devise'
 
 # Basic admin
-gem 'rails_admin'
+gem 'activeadmin', '~> 1.0.0.pre1'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
+group :development, :test do
+  gem 'awesome_print'
+end
 
 group :development do
   gem 'better_errors', '<= 1.1'
