@@ -37,11 +37,8 @@ def generate_pw(length=8):
 def get_project_name(branch):
     """ Attempts to generate a project name given a branch """
     proj = local('pwd', capture=True).split('/')[-1]
-    if branch == 'master':
-        tstamp = time.strftime("%Y%m%d%H%M")
-        project_name = proj+'-'+branch+'-'+tstamp
-    else:
-        project_name = proj+'-'+branch
+    tstamp = time.strftime("%Y%m%d%H%M")
+    project_name = proj+'-'+branch+'-'+tstamp
     return project_name
 
 
