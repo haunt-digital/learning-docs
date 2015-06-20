@@ -168,12 +168,13 @@ def git_archive(branch='master', out='/tmp/outfile.zip'):
 
 
 @task
-def compile_and_checkin_rails_production_assets_locally():
+def compile_and_checkin_rails_production_assets_locally(branch='master'):
+  local("git checkout " + branch)
+
   with settings(warn_only=True):
     local("RAILS_ENV=production bundle exec rake assets:precompile")
     local("git add .")
     local("git commit -a -m 'Adding compiled production assets for deployment'")
-
 
 @task
 def files_sync_from_remote(src=None,dst=None,user=None,delete=False):
@@ -250,7 +251,7 @@ def deploy(branch='master', debug=False):
 
   # This particular project, we do it this way.
   puts(green("Compiling and checking in production assets locally."))
-  compile_and_checkin_rails_production_assets_locally()
+  compile_and_checkin_rails_production_assets_locally(branch)
 
   puts(green("Generating site package"))
   project = get_project_name(branch)
@@ -293,12 +294,16 @@ def deploy(branch='master', debug=False):
     puts(green("Bundle updating"))
     sudo_run('bundle')
 
-    puts(green("Running migrations"))
-    sudo_run('RAILS_ENV=production bundle exec rake db:migrate')
+    # puts(green("Running migrations"))
+    # sudo_run('RAILS_ENV=production bundle exec rake db:migrate')
 
-    # Only the first time
-    # puts(green("Seeding initial data"))
-    # sudo_run('RAILS_ENV=production bundle exec rake db:seed')
+    # # Only the first time
+    # with settings(warn_only=True):
+    #   puts(green("Seeding initial data"))
+    #   sudo_run('RAILS_ENV=production bundle exec rake db:seed')
+
+    puts(green("Destructive database setup!"))
+    sudo_run('RAILS_ENV=production bundle exec rake db:setup')
 
     puts(green("Clearing cache"))
     sudo_run('RAILS_ENV=production bundle exec rake tmp:cache:clear')
@@ -310,7 +315,6 @@ def deploy(branch='master', debug=False):
     # puts(green("Compiling static assets"))
     # sudo_run('RAILS_ENV=production bundle exec rake assets:precompile')
 
-    # Generally avoid this via -d /full/path
     puts(green("Rebuilding upstart script"))
     sudo_run('foreman export --app ' + service_name + ' --user root upstart /etc/init')
 
