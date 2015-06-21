@@ -13,6 +13,7 @@ class Task < ActiveRecord::Base
 
   include RendersMarkdown
   renders_markdown :description
+  renders_markdown :body
 
   include IsCompletable
   points_for_completion 20

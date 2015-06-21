@@ -31,7 +31,8 @@ ActiveAdmin.register Task do
     inputs :multipart => true  do
       f.input :title
       f.input :description
-      f.input :banner, :as => :file, :hint => image_tag(f.object.banner.url)
+      f.input :body
+      f.input :banner, :as => :file, :hint => image_tag(f.object.banner.url(:medium))
       f.input :skills, :as => :select, :collection => Skill.all
     end
 

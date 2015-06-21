@@ -6,15 +6,17 @@
   data-path="<%= skill_task_path(@skill, task) %>">
 
   <div class="header parallax-window">
-    <div class="parallax-static-content">
+    <a href="<%= edit_admin_task_path(task) %>">
+      <div class="parallax-static-content">
 
-      <%= render partial: 'shared/completed_ribbon', object: task, as: :item %>
+        <%= render partial: 'shared/completed_ribbon', object: task, as: :item %>
 
-      <span class="title">
-        <h1><%= task.title %></h1>
-      </span>
-    </div>
-    <div class="parallax-background" style="background-image: url('<%= asset_path task.banner.file? ? task.banner.url : @skill.banner.url %>');"></div>
+        <span class="title">
+          <h1><%= task.title %></h1>
+        </span>
+      </div>
+      <div class="parallax-background" style="background-image: url('<%= asset_path task.banner.file? ? task.banner.url : @skill.banner.url %>');"></div>
+    </a>
   </div>
 
   <span class="modified">Last modified <%= l task.updated_at, format: :short %></span>
@@ -24,7 +26,7 @@
   </div>
 
   <div class="resources">
-
+    <%= task.body_html %>
   </div>
 
   <div class="status">

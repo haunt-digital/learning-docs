@@ -291,16 +291,16 @@ def deploy(branch='master', debug=False):
     puts(green("Bundle updating"))
     sudo_run('bundle')
 
-    # puts(green("Running migrations"))
-    # sudo_run('RAILS_ENV=production bundle exec rake db:migrate')
+    puts(green("Running migrations"))
+    sudo_run('RAILS_ENV=production bundle exec rake db:migrate')
 
-    # # Only the first time
-    # with settings(warn_only=True):
-    #   puts(green("Seeding initial data"))
-    #   sudo_run('RAILS_ENV=production bundle exec rake db:seed')
+    # Only the first time
+    with settings(warn_only=True):
+      puts(green("Seeding initial data"))
+      sudo_run('RAILS_ENV=production bundle exec rake db:seed')
 
-    puts(green("Destructive database setup!"))
-    sudo_run('RAILS_ENV=production bundle exec rake db:setup')
+    # puts(green("Destructive database setup!"))
+    # sudo_run('RAILS_ENV=production bundle exec rake db:setup')
 
     puts(green("Clearing cache"))
     sudo_run('RAILS_ENV=production bundle exec rake tmp:cache:clear')

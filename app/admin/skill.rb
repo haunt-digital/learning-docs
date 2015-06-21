@@ -35,7 +35,7 @@ ActiveAdmin.register Skill do
     inputs :multipart => true  do
       f.input :title
       f.input :description
-      f.input :banner, :as => :file, :hint => image_tag(f.object.banner.url)
+      f.input :banner, :as => :file, :hint => image_tag(f.object.banner.url(:medium))
       f.input :competencies, :as => :select, :collection => Competency.all
     end
 
